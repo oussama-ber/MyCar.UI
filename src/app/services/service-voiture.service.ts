@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { FilterCarModel } from '../models/CarModel';
 @Injectable()
 export class ServiceVoitureService {
 
@@ -13,5 +14,8 @@ export class ServiceVoitureService {
   }
   getCars(): Observable<any> {
     return this.http.get<any>('http://localhost:5000/api/car');
+  }
+  getFilteredCars(inputFilter: FilterCarModel){
+    return this.http.post<any>('http://localhost:5000/api/car/getFilteredCars',inputFilter);
   }
 }
