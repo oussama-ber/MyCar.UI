@@ -11,6 +11,7 @@ import { VendreVoitureComponent } from './components/vendre-voiture/vendre-voitu
 import { AcheterVoitureComponent } from './components/acheter-voiture/acheter-voiture.component';
 import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment-ca-marche.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { DetailsVoitureComponent } from './components/details-voiture/details-voiture.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarListComponent } from './components/car-list/car-list.component';
     VendreVoitureComponent,
     AcheterVoitureComponent,
     CommentCaMarcheComponent,
-    CarListComponent
+    CarListComponent,
+    DetailsVoitureComponent
   ],
   imports: [
     BrowserModule,

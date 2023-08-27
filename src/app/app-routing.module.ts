@@ -7,12 +7,14 @@ import { AcheterVoitureComponent } from './components/acheter-voiture/acheter-vo
 import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment-ca-marche.component';
 import { VendreVoitureComponent } from './components/vendre-voiture/vendre-voiture.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { DetailsVoitureComponent } from './components/details-voiture/details-voiture.component';
 
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent},
   { path: 'carlist', component: CarListComponent},
   { path: 'achetervoiture', component: AcheterVoitureComponent},
+  { path: 'detailsvoiture', component: DetailsVoitureComponent},
   { path: 'vendrevoiture', component: VendreVoitureComponent},
   { path: 'commentcamarche', component: CommentCaMarcheComponent},
   { path: '', component: LandingComponent},
