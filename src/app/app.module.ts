@@ -10,6 +10,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { VendreVoitureComponent } from './components/vendre-voiture/vendre-voiture.component';
 import { AcheterVoitureComponent } from './components/acheter-voiture/acheter-voiture.component';
 import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment-ca-marche.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment
     VendreVoitureComponent,
     AcheterVoitureComponent,
     CommentCaMarcheComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,
