@@ -27,11 +27,34 @@ export class CarListComponent implements OnInit {
   ngOnInit(): void {
     this.initializeFiler();
     this.getAllCars();
+    this.getFilteredCars();
   }
   initializeFiler(){
     this.carFilter = new FilterCarModel();
   }
   //#region api calls
+  getFilteredCars(){// should add the filter here
+    this.carFilter.marque = ["marque ","6"];
+    this.carFilter.prixMax = 1002;
+    this.carFilter.prixMin = 1000
+    this.carFilter.kilometrageMin = 1
+    this.carFilter.kilometrageMax = 6
+    this.carFilter.dateMin = 2020
+    this.carFilter.dateMax = 2023
+    this.carFilter.boiteVitesse =["boiteVitesse","2"];
+    this.carFilter.carburant =["carburant","2"];
+    this.carFilter.modele = ["modele", "6"];
+    this._voitureService.getFilteredCars(this.carFilter).subscribe(
+      (response)=>{
+      this.filteredCars = response.allCars;
+      console.log("this.filteredCars", this.filteredCars)
+      this.filteredCarsIsLoaded = true;
+    },
+
+    (error)=>{
+      console.log("error", error)
+    })
+  }
   getAllCars(){// should add the filter here
     this._voitureService.getCars().subscribe((response)=>{
       this.filteredCars = response.allCars;
