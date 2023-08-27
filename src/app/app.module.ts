@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,6 +11,7 @@ import { VendreVoitureComponent } from './components/vendre-voiture/vendre-voitu
 import { AcheterVoitureComponent } from './components/acheter-voiture/acheter-voiture.component';
 import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment-ca-marche.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { ServiceVoitureService } from './services/service-voiture.service';
 import { DetailsVoitureComponent } from './components/details-voiture/details-voiture.component';
 
 @NgModule({
@@ -28,9 +29,10 @@ import { DetailsVoitureComponent } from './components/details-voiture/details-vo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServiceVoitureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

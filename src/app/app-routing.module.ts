@@ -11,13 +11,13 @@ import { DetailsVoitureComponent } from './components/details-voiture/details-vo
 
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent},
+  { path: '', component: LandingComponent},
   { path: 'carlist', component: CarListComponent},
   { path: 'achetervoiture', component: AcheterVoitureComponent},
   { path: 'detailsvoiture', component: DetailsVoitureComponent},
   { path: 'vendrevoiture', component: VendreVoitureComponent},
   { path: 'commentcamarche', component: CommentCaMarcheComponent},
-  { path: '', component: LandingComponent},
+  { path: 'admin', component: AdminComponent},
   { path: '**', component: LandingComponent},
 ];
 
