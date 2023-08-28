@@ -13,6 +13,8 @@ import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment
 import { CarListComponent } from './components/car-list/car-list.component';
 import { ServiceVoitureService } from './services/service-voiture.service';
 import { DetailsVoitureComponent } from './components/details-voiture/details-voiture.component';
+import { SharedService } from './services/shared.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { DetailsVoitureComponent } from './components/details-voiture/details-vo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ServiceVoitureService],
+  providers: [ServiceVoitureService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
