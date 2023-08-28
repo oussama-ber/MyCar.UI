@@ -40,14 +40,24 @@
   </div>
 </section>
 <!-- search  -->
-<section>
-   <div class="flex w-full md:justify-center justify-center items-end">
-        <div class="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
-          <label for="hero-field" class="leading-7 text-sm text-gray-600"> Recherchez une voiture</label>
-          <input type="text" id="hero-field" name="hero-field" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-        </div>
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+<section class=" flex justify-center " >
+  <form [formGroup]="filterForm"  class="px-8 py-8 rounded-2xl bg-slate-200">
+    <div class="flex w-full md:justify-center justify-center items-end ">
+      <div class="relative mr-4 w-1/4">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600"> Recherchez une voiture</label>
+        <input type="text" id="hero-field" name="hero-field" formControlName="searchText" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
+      <div class="relative mr-4">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600"> kilometrage MAXIMUM</label>
+        <input type="number" id="hero-field" name="hero-field" formControlName="kilometrageMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mr-4 ">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600"> PRIX MAXIMUM</label>
+        <input type="number" id="hero-field" name="hero-field" formControlName="prixMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" (click)="onSearch()" >Button</button>
+    </div>
+  </form>
 </section>
 <!-- Nos dernières voitures  -->
 <section class="text-gray-600 body-font">
@@ -196,18 +206,18 @@
 </div>
 <!-- je vends ma voiture section -->
 <div class="row d-flex justify-content-center">
-  <div class="card vend-voiture-card border-0"  style="width: 80rem; height: 15rem;">
+  <div class="card vend-voiture-card border-0 mb-8"  style="width: 80rem; height: 15rem;">
     <div class="card-body">
       <!-- <h5 class="card-title">Card title</h5> -->
-      <div class="div row">
-        <div class="div col-6">
-          <p class="card-text fs-2">Vous souhaitez vendre votre voiture ?</p>
-          <p class="fs-3">Pas de problème on est là !</p>
+      <div class="div row flex content-center items-start h-full">
+        <div class="div col-6 flex flex-col">
+          <p class="card-text fs-2 py-1">Vous souhaitez vendre votre voiture ?</p>
+          <p class="fs-3 py-1">Pas de problème on est là !</p>
 
-          <a href="#" class="btn vend-voiture-card-btn text-white">Je vends ma voiture</a>
+          <a href="#" class="btn vend-voiture-card-btn text-white my-1">Je vends ma voiture</a>
         </div>
-        <div class="div col-6">
-          <img src="..." class="card-img-right" alt="...">
+        <div class="div col-6 flex h-100 justify-content-center items-center">
+          <img src="../../../assets/banner.png" class="card-img-right w-64" alt="banner_image">
         </div>
       </div>
     </div>
