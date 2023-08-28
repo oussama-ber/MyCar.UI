@@ -1,0 +1,112 @@
+// <i class="material-icons">face</i>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,900');
+// font-family: 'Roboto', sans-serif;
+
+.side-bar {
+  width: 350px;
+  height: 100vh;
+  background: linear-gradient(rgba(21, 101, 192, 0.8), rgba(21, 101, 192, 0.8)), url(https://78.media.tumblr.com/75d271a10f029631919923f8d17ed7b4/tumblr_ov2317tx521u1sdwgo1_500.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.125);
+} // side-bar
+
+.side-menu {
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  padding: 20px;
+
+  .brand {
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 35px;
+    text-align: center;
+    height: 75px;
+    line-height: 75px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .userauth {
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 15px 0px 15px 0px;
+    text-decoration: none;
+
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-column-gap: 25px;
+
+    .username {
+
+      color: #FFF;
+      font-family: 'Roboto', sans-serif;
+      font-size: 17px;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      text-decoration: none;
+
+    }
+
+  }
+
+  .menubuttons {
+
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+
+    a {
+
+      color: #FFF;
+      line-height: 70px;
+      text-decoration: none;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      font-weight: 300;
+
+      display: grid;
+      grid-template-columns: 70px auto;
+
+      i {
+
+        line-height: 70px;
+        text-align: center;
+        font-size: 25px;
+        outline: 1px solid #FFF;
+        outline-offset: -15px;
+
+      }
+
+      &:after {
+
+        content: '';
+        background: rgba(33, 150, 243, 0.1);
+        width: 100%;
+        height: 70px;
+        transition: all ease-in-out .425s;
+
+        position: absolute;
+        top: 0; left: -310px;
+
+      }
+
+      &:hover:after {
+
+        left: 0px;
+        background: rgba(255, 255, 255, 0.25);
+
+      }
+
+    }
+
+  }
+
+}

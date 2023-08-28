@@ -18,4 +18,7 @@ export class ServiceVoitureService {
   getFilteredCars(inputFilter: FilterCarModel){
     return this.http.post<any>('http://localhost:5000/api/car/getFilteredCars',inputFilter);
   }
+  getFilter(){
+    return this.http.get<any>('http://localhost:5000/api/car/getFilters');
+  }
 }

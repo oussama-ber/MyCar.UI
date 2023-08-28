@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, UntypedFormBuilder, UntypedFormGroup, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CarModel } from 'src/app/models/CarModel';
+import { CarModel, FilterCarModel } from 'src/app/models/CarModel';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-landing',
@@ -12,19 +14,30 @@ export class LandingComponent implements OnInit {
   //#region variables
   public latestCars: CarModel[] = []
   public latestCarsIsLoaded: boolean= false;
+  filterForm!: FormGroup;
+  carFilter: FilterCarModel = new FilterCarModel();
   //#endregion variables
 
-  constructor(private _voitureService: ServiceVoitureService, private router: Router) { }
+  constructor( private _fb : UntypedFormBuilder ,private _voitureService: ServiceVoitureService, private router: Router, private shareService: SharedService) { }
 
   ngOnInit(): void {
+    this.filterForm = this._fb.group({
+      searchText: [""],
+      kilometrageMaximum: [null],
+      prixMaximum: [null],
+    })
     this.getLatestCars();
+  }
+  initializeFilter(){
+    this.filterForm.controls["searchText"].setValue("");
+    this.filterForm.controls["kilometrageMaximum"].setValue(null);
+    this.filterForm.controls["prixMaximum"].setValue(null);
   }
   //#region api calls
   getLatestCars(){
     this._voitureService.getLastestCars().subscribe(
       (response)=>{
         this.latestCars = response.lastestCars;
-        console.log("latestCars", this.latestCars[0].marque);
         this.latestCarsIsLoaded = true;
       },
       (error)=>{
@@ -35,5 +48,20 @@ export class LandingComponent implements OnInit {
   //#endregion api calls
   goToAllCars(){
     this.router.navigate(["/carlist"])
+  }
+  onSearch(){
+    let kmMaxInput = this.filterForm.controls["kilometrageMaximum"].value;
+    let prixMaxInput = this.filterForm.controls["prixMaximum"].value;
+    this.carFilter.marque = this.filterForm.controls["searchText"].value;
+    if(kmMaxInput != null){
+      this.carFilter.kilometrageMax = this.filterForm.controls["kilometrageMaximum"].value;
+    }
+    if(prixMaxInput != null){
+      this.carFilter.prixMax = this.filterForm.controls["prixMaximum"].value;
+    }
+    console.log("this.carFilter", this.carFilter)
+    this.shareService.setFiler(this.carFilter);
+    // this.initializeFilter();
+    this.router.navigate(['/carlist']);
   }
 }
