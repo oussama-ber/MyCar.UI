@@ -131,23 +131,26 @@ export class CarListComponent implements OnInit {
   let inputFiler = await this.sharedService.getfilterVariable();
   console.log("inputFiler", inputFiler)
   this.carFilter = inputFiler;
+
   }
    initializeFiler(){
      this.carFilter = new FilterCarModel();
   }
   //#region api calls
+
   async getFilteredCars(){// should add the filter here
     // this.carFilter.marque = ["marque ","6"];
     // this.carFilter.prixMax = 1002;
     // this.carFilter.prixMin = 1000
     // this.carFilter.kilometrageMin = 1
     // this.carFilter.kilometrageMax = 6
-    // this.carFilter.dateMin = 2020
+    // this.carFilter.dateMin = 202
     // this.carFilter.dateMax = 2023
     // this.carFilter.boiteVitesse =["boiteVitesse","2"];
     // this.carFilter.carburant =["carburant","2"];
     // this.carFilter.modele = ["modele", "6"];
     await this._voitureService.getFilteredCars(this.carFilter).subscribe(
+
       (response)=>{
       this.filteredCars = response.allCars;
       console.log("this.filteredCars", this.filteredCars)
@@ -160,6 +163,7 @@ export class CarListComponent implements OnInit {
   }
   async getAllCars(){// should add the filter here
     await this._voitureService.getCars().subscribe((response)=>{
+
       this.filteredCars = response.allCars;
       this.filteredCarsIsLoaded = true;
     })
