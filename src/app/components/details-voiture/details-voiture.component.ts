@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsVoitureComponent implements OnInit {
 
   constructor() { }
-
+  selectedControl: number = 1;
   ngOnInit(): void {
   }
 
+  updateSelectedControl(value: number){
+    this.selectedControl = value;
+  }
 }
