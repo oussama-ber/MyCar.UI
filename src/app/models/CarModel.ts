@@ -11,6 +11,7 @@ export interface CarModel{
   etatInterieur: object[],
   tag: string,
   createdDate: Date,
+  prix: number,
 }
 export class FilterCarModel{
   prixMin: number = 0;

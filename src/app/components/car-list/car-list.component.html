@@ -1,11 +1,11 @@
 
 <div class="flex">
-  <div class="side-bar">
+  <div class="side-bar  ">
     <div class="side-menu">
       <div class="brand">
-        <b>side</b>bar
+        Mes Filters
       </div>
-      <div class="fs-3">Prix</div>
+      <div class="fs-5 font-semibold mt-2">Prix</div>
       <div class="flex flex-row">
         <div class="flex-col">
           <label for="prixmin">Min. ({{mimumPrix}})</label><br>
@@ -17,15 +17,15 @@
         </div>
       </div>
 
-      <div class="fs-3">Marque</div>
+      <div class="fs-4 font-semibold mt-2">Marque</div>
       <div class="flex flex-col">
         <div *ngFor="let marque of allMarques">
-          <input type="checkbox" id="html" name="fav_language" [value]="marque" (change)="marqueSubject.next(marque)">
+          <input type="checkbox" id="html" name="fav_language" [value]="marque" (change)="marqueSubject.next(marque)" class="me-3">
           <label for="html">{{marque}}</label><br>
         </div>
       </div>
 
-      <div class="fs-3">kilometrage</div>
+      <div class="fs-4 font-semibold mt-2 ">kilometrage</div>
       <div class="flex flex-row">
         <div class="flex-col">
           <label for="html">Min.({{mimumKilometrage}})</label><br>
@@ -37,17 +37,17 @@
         </div>
       </div>
 
-      <div class="fs-3">Carburant</div>
+      <div class="fs-4 font-semibold mt-2">Carburant</div>
       <div class="flex flex-col">
         <div *ngFor="let carburant of allCarburants">
-          <input type="checkbox" id="html" name="fav_language" [value]="carburant" (change)="carburantSubject.next(carburant)">
+          <input type="checkbox" id="html" name="fav_language" [value]="carburant" (change)="carburantSubject.next(carburant)" class="me-3">
           <label for="html">{{carburant}}</label><br>
         </div>
       </div>
-      <div class="fs-3">Boite de vitesse</div>
+      <div class="fs-4 font-semibold mt-2">Boite de vitesse</div>
       <div class="flex flex-col">
         <div *ngFor="let boitVitesse of allBoitesVitesses">
-          <input type="checkbox" id="html" [value]="boitVitesse" (change)="boiteVitessSubject.next(boitVitesse)">
+          <input type="checkbox" id="html" [value]="boitVitesse" (change)="boiteVitessSubject.next(boitVitesse)" class="me-3">
           <label for="html">{{boitVitesse}}</label><br>
         </div>
       </div>
@@ -66,7 +66,7 @@
     <!-- text - end -->
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- product - start -->
-      <div *ngFor="let car of filteredCars">
+      <div *ngFor="let car of filteredCars" class="card-layout">
         <a href="#" class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100" routerLink="/detailsvoiture">
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by Austin Wade"
           class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
