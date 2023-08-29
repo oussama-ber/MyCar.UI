@@ -47,21 +47,20 @@ export class LandingComponent implements OnInit {
   }
   //#endregion api calls
   goToAllCars(){
-    this.router.navigate(["/carlist"])
+    this.router.navigate(["/achetervoiture"])
   }
   onSearch(){
     let kmMaxInput = this.filterForm.controls["kilometrageMaximum"].value;
     let prixMaxInput = this.filterForm.controls["prixMaximum"].value;
-    this.carFilter.marque = this.filterForm.controls["searchText"].value;
+    this.carFilter.marque.push(this.filterForm.controls["searchText"].value);
     if(kmMaxInput != null){
       this.carFilter.kilometrageMax = this.filterForm.controls["kilometrageMaximum"].value;
     }
     if(prixMaxInput != null){
       this.carFilter.prixMax = this.filterForm.controls["prixMaximum"].value;
     }
-    console.log("this.carFilter", this.carFilter)
     this.shareService.setFiler(this.carFilter);
     // this.initializeFilter();
-    this.router.navigate(['/carlist']);
+    this.router.navigate(['/achetervoiture']);
   }
 }
