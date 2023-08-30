@@ -1,39 +1,68 @@
-
 <div class="flex">
-  <div class="side-bar  ">
+  <div class="side-bar">
     <div class="side-menu ps-10">
-      <div class="filter-title-style text-center">
-        Mes Filters
-      </div>
+      <div class="filter-title-style text-center">Mes Filters</div>
       <div class="fs-6 title-style mt-2">Prix</div>
       <div class="flex flex-row">
         <div class="flex-col">
-          <label for="prixmin">Min. ({{mimumPrix}})</label><br>
-          <input type="number" [(ngModel)]="selectPrixMin" (ngModelChange)="prixMinSubject.next('')" id="prixmin" class="rounded input-bg w-8/12">
+          <label for="prixmin">Min. ({{ mimumPrix }})</label><br />
+          <input
+            type="number"
+            [(ngModel)]="selectPrixMin"
+            (ngModelChange)="prixMinSubject.next('')"
+            id="prixmin"
+            class="rounded input-bg w-8/12"
+          />
         </div>
         <div class="flex-col">
-          <label for="prixmax">Max. ({{maximumPrix}})</label><br>
-          <input type="number"  [(ngModel)]="selectPrixMax" (ngModelChange)="prixMaxSubject.next('')" id="prixmax" class="rounded input-bg w-8/12">
+          <label for="prixmax">Max. ({{ maximumPrix }})</label><br />
+          <input
+            type="number"
+            [(ngModel)]="selectPrixMax"
+            (ngModelChange)="prixMaxSubject.next('')"
+            id="prixmax"
+            class="rounded input-bg w-8/12"
+          />
         </div>
       </div>
 
       <div class="fs-6 title-style mt-2">Marque</div>
       <div class="list-group">
-        <label class="list-group-item lable-bg border-none ps-0 check-style"  *ngFor="let marque of allMarques ">
-          <input class="form-check-input me-1 "  type="checkbox" [value]="marque" (change)="marqueSubject.next(marque)">
-          {{marque}}
+        <label
+          class="list-group-item lable-bg border-none ps-0 check-style"
+          *ngFor="let marque of allMarques"
+        >
+          <input
+            class="form-check-input me-1"
+            type="checkbox"
+            [value]="marque"
+            (change)="marqueSubject.next(marque)"
+          />
+          {{ marque }}
         </label>
       </div>
 
-      <div class="fs-6 title-style  mt-2 ">kilometrage</div>
+      <div class="fs-6 title-style mt-2">kilometrage</div>
       <div class="flex flex-row">
         <div class="flex-col">
-          <label for="html">Min.({{mimumKilometrage}})</label><br>
-          <input type="number"  id="html" [(ngModel)]="selectKilometrageMin" (ngModelChange)="kilometrageMinSubject.next('')" class="rounded input-bg w-8/12">
+          <label for="html">Min.({{ mimumKilometrage }})</label><br />
+          <input
+            type="number"
+            id="html"
+            [(ngModel)]="selectKilometrageMin"
+            (ngModelChange)="kilometrageMinSubject.next('')"
+            class="rounded input-bg w-8/12"
+          />
         </div>
         <div class="flex-col">
-          <label for="html">Max. ({{maximumKilometrage}}) </label><br>
-          <input type="number" id="html" [(ngModel)]="selectKilometrageMax" (ngModelChange)="kilometrageMaxSubject.next('')" class="rounded input-bg w-8/12">
+          <label for="html">Max. ({{ maximumKilometrage }}) </label><br />
+          <input
+            type="number"
+            id="html"
+            [(ngModel)]="selectKilometrageMax"
+            (ngModelChange)="kilometrageMaxSubject.next('')"
+            class="rounded input-bg w-8/12"
+          />
         </div>
       </div>
 
@@ -44,18 +73,34 @@
           <label for="html">{{carburant}}</label><br>
         </div>
       </div> -->
-      <div class="fs-6 title-style  mt-2">Carburant</div>
+      <div class="fs-6 title-style mt-2">Carburant</div>
       <div class="list-group">
-        <label class="list-group-item lable-bg border-none ps-0 check-style" *ngFor="let carburant of allCarburants">
-          <input class="form-check-input me-1 "  type="checkbox" [value]="carburant" (change)="carburantSubject.next(carburant)">
-          {{carburant}}
+        <label
+          class="list-group-item lable-bg border-none ps-0 check-style"
+          *ngFor="let carburant of allCarburants"
+        >
+          <input
+            class="form-check-input me-1"
+            type="checkbox"
+            [value]="carburant"
+            (change)="carburantSubject.next(carburant)"
+          />
+          {{ carburant }}
         </label>
       </div>
-      <div class="fs-6 title-style  mt-2">Boite de vitesse</div>
+      <div class="fs-6 title-style mt-2">Boite de vitesse</div>
       <div class="list-group">
-        <label class="list-group-item lable-bg border-none ps-0 check-style" *ngFor="let boitVitesse of allBoitesVitesses">
-          <input class="form-check-input me-1 "  type="checkbox" [value]="boitVitesse" (change)="boiteVitessSubject.next(boitVitesse)">
-          {{boitVitesse}}
+        <label
+          class="list-group-item lable-bg border-none ps-0 check-style"
+          *ngFor="let boitVitesse of allBoitesVitesses"
+        >
+          <input
+            class="form-check-input me-1"
+            type="checkbox"
+            [value]="boitVitesse"
+            (change)="boiteVitessSubject.next(boitVitesse)"
+          />
+          {{ boitVitesse }}
         </label>
       </div>
       <!-- <div class="fs-4 font-semibold mt-2">Boite de vitesse</div>
@@ -65,63 +110,143 @@
           <label for="html">{{boitVitesse}}</label><br>
         </div>
       </div> -->
-  </div>
-
-</div>
-
-<div class="bg-white py-6 sm:py-8 lg:py-12 w-full">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <!-- text - start -->
-    <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Notre sélection de voitures d'occasion contrôlées</h2>
-
-      <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">👨‍🔧 Voitures contrôlées👍 Garantie incluse👌 Satisfait ou remboursé</p>
     </div>
-    <!-- text - end -->
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      <!-- product - start -->
-      <div *ngFor="let car of filteredCars" class="card-layout bg-gray-100 rounded-b-lg">
-        <a href="#" class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56" routerLink="/detailsvoiture">
-          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by Austin Wade"
-          class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-
-          <!-- <span class="absolute left-0 top-3 rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">-50%</span> -->
-          <div class="absolute left-0 bottom-2 flex gap-2" *ngIf="car.tag.length > 0">
-              <span *ngIf="car.tag == 'Voiture Réservée'" class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">{{car.tag}}</span>
-              <span *ngIf="car.tag == 'Bonne affaire'" class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">{{car.tag}}</span>
-              <span *ngIf="car.tag == 'BLA BLA'" class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white">{{car.tag}}</span>
-              <!-- <span class="rounded-lg bg-white px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-gray-800">New</span>
-              <span class="rounded-lg bg-yellow px-3 py-1.5 text-sm font-bold uppercase tracking-wider text-gray-800">New</span> -->
-            </div>
-        </a>
-<div class="row gap-2  h-20 " >
-  <div class="col ps-3 pt-2" >
-    <div class="row">
-      <a href="#" class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg">{{car.marque}} {{car.modele}}</a>
-
-    </div>
-    <div class="row"> </div>
-    <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap">{{car.dateMiseCirculation | date:'yyyy'}} |  {{car.kilometrage}} |  {{car.carburant}} |  {{car.boiteVitesse}}</span>
-
   </div>
-  <div class="col flex justify-end items-start pt-3 ps-0 pe-3" >
-    <span class="font-bold text-gray-600 lg:text-sm">{{car.prix}} TND</span>
-  </div>
-</div>
-        <!-- <div class="flex-row  items-start justify-between gap-2 rounded-b-lg bg-gray-100 p-4">
 
-            <div class="flex flex-col">
+  <div class="bg-white py-6 sm:py-8 lg:py-12 w-full">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <!-- text - start -->
+      <div class="mb-10 md:mb-16">
+        <h2
+          class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl"
+        >
+          Notre sélection de voitures d'occasion contrôlées
+        </h2>
 
-            </div>
-
-            <div class="flex flex-col items-end">
-            </div>
-
-          </div> -->
+        <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+          👨‍🔧 Voitures contrôlées👍 Garantie incluse👌 Satisfait ou remboursé
+        </p>
       </div>
-      <!-- product - end -->
+      <!-- text - end -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- product - start -->
+        <div
+          *ngFor="let car of filteredCars"
+          class="card-layout bg-gray-100 rounded-b-lg"
+        >
+          <a
+            href="#"
+            class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
+            routerLink="/detailsvoiture"
+          >
+            <img
+              src="../../../assets/item.png"
+              loading="lazy"
+              alt="Photo by Austin Wade"
+              class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
+            <div
+              class="absolute left-0 bottom-2 flex gap-2"
+              *ngIf="car.tag.length > 0"
+            >
+              <span
+                *ngIf="car.tag == 'Voiture Réservée'"
+                class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+              <span
+                *ngIf="car.tag == 'Bonne affaire'"
+                class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+              <span
+                *ngIf="car.tag == 'BLA BLA'"
+                class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+            </div>
+          </a>
+          <div class="row gap-2 h-20">
+            <div class="col ps-3 pt-2">
+              <div class="row">
+                <a
+                  href="#"
+                  class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg"
+                  >{{ car.marque }} {{ car.modele }}</a
+                >
+              </div>
+              <div class="row"></div>
+              <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
+                >{{ car.dateMiseCirculation | date : "yyyy" }} |
+                {{ car.kilometrage }} | {{ car.carburant }} |
+                {{ car.boiteVitesse }}</span
+              >
+            </div>
+            <div class="col flex justify-end items-start pt-3 ps-0 pe-3">
+              <span class="font-bold text-gray-600 lg:text-sm"
+                >{{ car.prix }} TND</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card-layout bg-gray-100 rounded-b-lg card-wrapper" *ngFor="let car of filteredCars">
+          <a
+            href="#"
+            class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
+            routerLink="/detailsvoiture"
+          >
+            <img
+              src="../../../assets/item.png"
+              loading="lazy"
+              alt="Photo by Austin Wade"
+              class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+            />
+            <div
+              class="absolute left-0 bottom-2 flex gap-2"
+              *ngIf="car.tag.length > 0"
+            >
+              <span
+                *ngIf="car.tag == 'Voiture Réservée'"
+                class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+              <span
+                *ngIf="car.tag == 'Bonne affaire'"
+                class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+              <span
+                *ngIf="car.tag == 'BLA BLA'"
+                class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+                >{{ car.tag }}</span
+              >
+            </div>
+          </a>
+          <div class="row gap-2 h-20 content-wrapper">
+            <div class="col-9 ps-3 pt-2">
+              <div class="row">
+                <a
+                  href="#"
+                  class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg"
+                  >{{ car.marque }} {{ car.modele }}</a
+                >
+              </div>
+              <div class="row"></div>
+              <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
+                >{{ car.dateMiseCirculation | date : "yyyy" }} |
+                {{ car.kilometrage }} | {{ car.carburant }} |
+                {{ car.boiteVitesse }}</span
+              >
+            </div>
+            <div class="col-3 flex justify-start items-start pt-3 ps-0 pe-3">
+              <span class="font-bold text-gray-600 lg:text-sm"
+                >{{ car.prix }} TND</span
+              >
+            </div>
+          </div>
+        </div> -->
+        <!-- product - end -->
+      </div>
     </div>
   </div>
-</div>
-
 </div>
