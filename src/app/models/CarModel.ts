@@ -13,6 +13,19 @@ export interface CarModel{
   createdDate: Date,
   prix: number,
 }
+export class RequestModel{
+  _id: number = 0
+  marque: string = "";
+  modele: string = "";
+  dateMiseCirculation: string = "";
+  carburant: string= "";
+  boiteVitesse: string= "";
+  kilometrage: number = 0;
+  createdDate: Date = new Date();
+  email : string = "";
+  telephone : number = 0;
+  tag: string = '';
+}
 export class FilterCarModel{
   prixMin: number = 0;
   prixMax: number= 0;

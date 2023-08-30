@@ -42,14 +42,15 @@ radial-gradient(at 16% 38%, hsla(201,71%,17%,1) 0px, transparent 50%);
 }
 .transform-banner{
   transform: translateY(-61px);
-  background-color: #E8F0FE;}
-    .field-text{
-    font-family: var( --text-family);
-    font-size: var(--text-size);
-    font-weight:var(--text-title-wheight) ;
-    color: var(--text-color);
+  background-color: #E8F0FE;
+}
+.field-text{
+  font-family: var( --text-family);
+  font-size: var(--text-size);
+  font-weight:var(--text-title-wheight) ;
+  color: var(--text-color);
 
-  }
+}
   .button-style{
     background-color: var(--secondary-bg-color);
     color: var(  --main-bg-color) !important;
