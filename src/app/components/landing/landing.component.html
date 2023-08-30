@@ -1,9 +1,9 @@
 <!-- welcome -->
-<section class="text-gray-600 body-font">
-  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+<section class="text-gray-600 body-font hero-bg">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Vendez votre voiture au meilleur prix </h1>
-      <p class="mb-8 leading-relaxed">Une estimation de votre voiture en 2 minutes, top chrono !</p>
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 h-1-style">Vendez votre voiture au meilleur prix </h1>
+      <p class="mb-8 leading-relaxed h-2-style">Une estimation de votre voiture en 2 minutes, top chrono !</p>
       <!-- <div class="flex w-full md:justify-start justify-center items-end">
         <div class="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
           <label for="hero-field" class="leading-7 text-sm text-gray-600">Placeholder</label>
@@ -35,74 +35,122 @@
       </div> -->
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded" alt="hero" src="../../../assets/undraw_electric_car.png">
+      <img class="object-cover object-center rounded" alt="hero" src="../../../assets/banner.png">
     </div>
   </div>
 </section>
 <!-- search  -->
-<section class=" flex justify-center " >
-  <form [formGroup]="filterForm"  class="px-8 py-8 rounded-2xl bg-slate-200">
+<section class=" flex justify-center section-bg" >
+  <form [formGroup]="filterForm"  class="px-8 py-8 rounded-2xl bg-slate-200 transform-banner">
     <div class="flex w-full md:justify-center justify-center items-end ">
       <div class="relative mr-4 w-1/4">
-        <label for="hero-field" class="leading-7 text-sm text-gray-600"> Recherchez une voiture</label>
-        <input type="text" id="hero-field" name="hero-field" formControlName="searchText" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600 field-text" > Recherchez une voiture</label>
+        <input type="text" id="hero-field" name="hero-field" formControlName="searchText" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out input-bg">
       </div>
       <div class="relative mr-4">
-        <label for="hero-field" class="leading-7 text-sm text-gray-600"> kilometrage MAXIMUM</label>
-        <input type="number" id="hero-field" name="hero-field" formControlName="kilometrageMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600 field-text"> Kilometrage Maximum</label>
+        <input type="number" id="hero-field" name="hero-field" formControlName="kilometrageMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out input-bg">
       </div>
       <div class="relative mr-4 ">
-        <label for="hero-field" class="leading-7 text-sm text-gray-600"> PRIX MAXIMUM</label>
-        <input type="number" id="hero-field" name="hero-field" formControlName="prixMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <label for="hero-field" class="leading-7 text-sm text-gray-600 field-text "> Prix Maximum</label>
+        <input type="number" id="hero-field" name="hero-field" formControlName="prixMaximum" class="w-full bg-gray-100 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-indigo-200 focus:bg-transparent focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out input-bg">
       </div>
-      <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" (click)="onSearch()" >Button</button>
+      <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg button-style" (click)="onSearch()" >Search <i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
   </form>
 </section>
 <!-- Nos dernières voitures  -->
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 body-font section-bg">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20">
       <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Nos dernières voitures</h1>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 sub-title">Nos dernières voitures</h1>
         <div class="h-1 w-20 bg-indigo-500 rounded"></div>
       </div>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 content-style">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
     </div>
     <div class="flex flex-wrap -m-4">
-      <div class="xl:w-1/4 md:w-1/2 p-4" *ngFor="let car of latestCars" >
-        <div class="bg-gray-100  rounded-lg">
-          <img class="h-40 rounded w-full object-cover object-center mb-3" src="https://dummyimage.com/720x400" alt="content">
-          <div class="px-3" >
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{car.marque}}  </h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{car.modele}}</h2>
+      <div class="xl:w-1/4 md:w-1/2 p-4 " *ngFor="let car of latestCars" >
+        <div class="card-layout bg-gray-100 rounded-b-lg card-wrapper" >
+        <a
+          href="#"
+          class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
+          routerLink="/detailsvoiture"
+        >
+          <img
+            src="../../../assets/item.png"
+            loading="lazy"
+            alt="Photo by Austin Wade"
+            class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+          />
+          <div
+            class="absolute left-0 bottom-2 flex gap-2"
+            *ngIf="car.tag.length > 0"
+          >
+            <span
+              *ngIf="car.tag == 'Voiture Réservée'"
+              class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+              >{{ car.tag }}</span
+            >
+            <span
+              *ngIf="car.tag == 'Bonne affaire'"
+              class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+              >{{ car.tag }}</span
+            >
+            <span
+              *ngIf="car.tag == 'BLA BLA'"
+              class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
+              >{{ car.tag }}</span
+            >
           </div>
-          <p class="leading-relaxed text-sm"> {{car.dateMiseCirculation | date:'yyyy'}} |  {{car.kilometrage}} |  {{car.carburant}} |  {{car.boiteVitesse}}  </p>
+        </a>
+        <div class="row gap-2 h-20 content-wrapper">
+          <div class="col-9 ps-3 pt-2">
+            <div class="row">
+              <a
+                href="#"
+                class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg"
+                >{{ car.marque }} {{ car.modele }}</a
+              >
+            </div>
+            <div class="row"></div>
+            <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
+              >{{ car.dateMiseCirculation | date : "yyyy" }} |
+              {{ car.kilometrage }} | {{ car.carburant }} |
+              {{ car.boiteVitesse }}</span
+            >
+          </div>
+          <div class="col-3 flex justify-start items-start pt-3 ps-0 pe-3">
+            <span class="font-bold text-gray-600 lg:text-sm"
+              >{{ car.prix }} TND</span
+            >
+          </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
-  <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" (click)="goToAllCars()">Voir toutes nos voitures d'occasion</button>
+  <div class="flex flex-wrap w-full mb-0 flex-col items-center text-center">
+    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg button-style" (click)="goToAllCars()">Voir toutes nos voitures d'occasion</button>
   </div>
 </section>
 <!-- features  -->
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 body-font section-bg">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Bienvenue chez MyCar</h2>
-      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Achetez une voiture d’occasion sans stress : on vous accompagne de A à Z !</h1>
+      <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1 h-1-style feature-title">Bienvenue chez <span  class="yellow-text">My Auto</span></h2>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mt-4">Achetez une voiture d’occasion sans stress : on vous accompagne de A à Z !</h1>
     </div>
     <div class="flex flex-wrap -m-4">
-      <div class="p-4 md:w-1/3">
-        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+      <div class="p-4 md:w-1/3 ">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col feature-card">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0 svg-bg">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
               </svg>
             </div>
-            <h2 class="text-gray-900 text-lg title-font font-medium">Voitures contrôlées</h2>
+            <h2 class="text-gray-900 text-lg title-font font-medium feature-text-style">Voitures contrôlées</h2>
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">Les véhicules sont contrôlés sur 200 points de contrôle, et sont en parfait état mécanique.</p>
@@ -114,16 +162,16 @@
           </div>
         </div>
       </div>
-      <div class="p-4 md:w-1/3">
-        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+      <div class="p-4 md:w-1/3 ">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col feature-card">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0 svg-bg">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </div>
-            <h2 class="text-gray-900 text-lg title-font font-medium">Meilleur qualité / prix</h2>
+            <h2 class="text-gray-900 text-lg title-font font-medium feature-text-style">Meilleur qualité / prix</h2>
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">Familiale, sportive, électrique, utilitaire... Trouvez votre bonheur en quelques clics.</p>
@@ -135,17 +183,17 @@
           </div>
         </div>
       </div>
-      <div class="p-4 md:w-1/3">
-        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+      <div class="p-4 md:w-1/3 ">
+        <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col feature-card">
           <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0 svg-bg">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <circle cx="6" cy="6" r="3"></circle>
                 <circle cx="6" cy="18" r="3"></circle>
                 <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
               </svg>
             </div>
-            <h2 class="text-gray-900 text-lg title-font font-medium">Garantie incluse</h2>
+            <h2 class="text-gray-900 text-lg title-font font-medium feature-text-style">Garantie incluse</h2>
           </div>
           <div class="flex-grow">
             <p class="leading-relaxed text-base">CapCar, c’est presque comme du neuf, sans le prix du neuf, avec une garantie de 6 mois minimum.</p>
@@ -157,64 +205,19 @@
           </div>
         </div>
       </div>
-      <!-- <div class="p-4 md:w-1/4"> -->
-        <!-- <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-          <div class="flex items-center mb-3">
-            <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <circle cx="6" cy="6" r="3"></circle>
-                <circle cx="6" cy="18" r="3"></circle>
-                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-              </svg>
-            </div>
-            <h2 class="text-gray-900 text-lg title-font font-medium">Satisfait ou remboursé</h2>
-          </div>
-          <div class="flex-grow">
-            <p class="leading-relaxed text-base">Achetez sans stress, vous avez 7 jours pour changer d’avis et vous faire rembourser !</p>
-            <a class="mt-3 text-indigo-500 inline-flex items-center">En savoir plus
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>
-<!-- je vendre ma voiture -->
-<div class="flex w-full md:justify-center justify-center items-end">
-  <div class="p-6">
-    <h5 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-      UI/UX Review Check
-    </h5>
-    <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-      The place is close to Barceloneta Beach and bus stop just 2 min by walk
-      and near to "Naviglio" where you can enjoy the main night life in
-      Barcelona.
-    </p>
-  </div>
-  <div class="p-6 pt-0">
-    <button
-      class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      type="button"
-      data-ripple-light="true"
-    >
-      Read More
-    </button>
-  </div>
-</div>
 <!-- je vends ma voiture section -->
-<div class="row d-flex justify-content-center">
-  <div class="card vend-voiture-card border-0 mb-8"  style="width: 80rem; height: 15rem;">
+<div class="row d-flex justify-content-center section-bg">
+  <div class="card vend-voiture-card border-0 mb-8 banner-card pe-0 ps-0"  style="width: 89rem; height: 15rem;">
     <div class="card-body">
-      <!-- <h5 class="card-title">Card title</h5> -->
-      <div class="div row flex content-center items-start h-full">
-        <div class="div col-6 flex flex-col">
+      <div class="div row flex content-center items-center h-full">
+        <div class="div col-6 flex flex-col banner-text">
           <p class="card-text fs-2 py-1">Vous souhaitez vendre votre voiture ?</p>
           <p class="fs-3 py-1">Pas de problème on est là !</p>
 
-          <a href="#" class="btn vend-voiture-card-btn text-white my-1">Je vends ma voiture</a>
+          <a href="#" class="btn vend-voiture-card-btn text-white my-1  ">Je vends ma voiture</a>
         </div>
         <div class="div col-6 flex h-100 justify-content-center items-center">
           <img src="../../../assets/banner.png" class="card-img-right w-64" alt="banner_image">
@@ -224,18 +227,25 @@
   </div>
 </div>
 <!-- contact support section -->
-<section class="row d-flex justify-content-center contact-landing-page">
-  <div class="card border-0 m-3 justify-content-center" style="width: 18rem; height: 25rem;">
-    <div class=" flex justify-content-center justify-items-center">
-      <img src="../../../assets/undraw_Female_avatar_efig.png" class="card-img-top rounded-circle w-40" alt="...">
+<section class="text-gray-600 body-font relative section-bg section-display section-bg ">
+  <div class="  container-card">
+    <div class="card-top">
+      <h3 class="contact-title">Contactez gratuitement nos experts au téléphone</h3>
     </div>
-    <div class="card-body flex flex-col justify-content-center justify-items-center">
-      <p class="card-text font-medium">Contactez gratuitement nos experts au téléphone</p>
-      <button type="button" class="btn btn-outline-success my-3">123456789</button>
-      <p class="card-text">Tous nos experts sont basés en France 🇫🇷</p>
+    <div class="card-bottom">
+      <img src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png" alt="" class="img">
+      <p class="name">Jhon Doe</p>
+      <div class="status">Support</div>
+      <button class="btn-contact">+216 XX XXX XXX <i class="fa-solid fa-phone phone-svg"></i></button>
     </div>
   </div>
-<div></div>
+<div class="mx-5" >
+  <h1 class="content">
+
+<span class="emoji">  🤝 👨‍🔧 🏆</span> <br>
+Nos experts vous accompagnent à chaque étape, jusqu’à l'achat de votre voiture !
+  </h1>
+</div>
 </section>
 
 
