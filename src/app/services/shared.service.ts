@@ -15,7 +15,7 @@ export class SharedService {
     return this.filter;
   }
   setFiler(filterInput: FilterCarModel){
-    this.filter = filterInput;
+    this.filter = {...filterInput};
     // this.filterObservable.next({ filterInput: filterInput });
     // console.log("filterInput from the shared service", filterInput)
   }

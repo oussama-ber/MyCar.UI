@@ -1,0 +1,26 @@
+.sell-card-style{
+    background-color: #E8F0FE;
+}
+.field-text{
+  font-family: var( --text-family);
+  font-size: var(--text-size);
+  font-weight:var(--text-title-wheight);
+  color: var(--text-color);
+}
+.button-style{
+  background-color: var(--accent-bg-color);
+  color: var(--text-color-light) !important;
+  justify-content: center;
+  font-weight: 500 !important;
+  gap: 5px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.form-helper-style{
+  color: var(--secondary-bg-color) !important;
+  font-family: var( --text-family);
+  font-size: var(--text-size);
+  font-weight: var(--text-title-wheight);
+  text-decoration: underline;
+}

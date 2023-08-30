@@ -60,7 +60,8 @@ export class LandingComponent implements OnInit {
       this.carFilter.prixMax = this.filterForm.controls["prixMaximum"].value;
     }
     this.shareService.setFiler(this.carFilter);
-    // this.initializeFilter();
+    // if()
+    this.initializeFilter();
     this.router.navigate(['/achetervoiture']);
   }
 }

@@ -81,9 +81,9 @@ export class AcheterVoitureComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    await  this.getInputFilter();
     await this.getFilterDetails();
     // await this.initializeFiler();
-    await  this.getInputFilter();
     await this.getAllCars();
     await this.getFilteredCars();
   }
