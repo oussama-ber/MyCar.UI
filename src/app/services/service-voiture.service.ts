@@ -22,6 +22,10 @@ export class ServiceVoitureService {
   getFilter(){
     return this.http.get<any>(`${this.baseUrl}/car/getFilters`);
   }
+
+  getCarDetailsById(carId: string){
+    return this.http.get<any>(`${this.baseUrl}/car/getCarDetailsById?voitureId=` + carId);
+  }
   //#region Request calls
   getAllRequests(){
     return this.http.get<any>(`${this.baseUrl}/request`);
