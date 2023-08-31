@@ -17,6 +17,7 @@ import { SharedService } from './services/shared.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './components/admin/tabs/requests/requests.component';
 import { CollectionComponent } from './components/admin/tabs/collection/collection.component';
+import { CreateVoitureComponent } from './components/admin/tabs/create-voiture/create-voiture.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CollectionComponent } from './components/admin/tabs/collection/collecti
     CarListComponent,
     DetailsVoitureComponent,
     RequestsComponent,
-    CollectionComponent
+    CollectionComponent,
+    CreateVoitureComponent
   ],
   imports: [
     BrowserModule,

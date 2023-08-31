@@ -1,7 +1,7 @@
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="-my-8 divide-y-2 divide-gray-100">
-      <table class="table"*ngIf="requestsIsLoaded" >
+      <table class="table" style="height: 50vh;"*ngIf="requestsIsLoaded" >
         <thead>
           <tr>
             <th data-label="first-name">Marque</th>
@@ -13,6 +13,7 @@
             <th data-label="email">Email</th>
             <th data-label="email">Numero Telephone</th>
             <th data-label="email">Created Date</th>
+            <th data-label="email">Status</th>
             <th data-label="email"></th>
           </tr>
         </thead>
@@ -27,14 +28,15 @@
             <td data-label="email"> {{request.email}}</td>
             <td data-label="email"> (+216) {{request.telephone}}</td>
             <td data-label="last-name">{{request.createdDate | date:'dd-MM-yyyy'}}</td>
+            <td data-label="last-name">{{request.tag}}</td>
             <td data-label="email">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown button
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" (click)="deleteRequestById(request._id)">Refuser</a></li>
-                  <li><a class="dropdown-item">Accepter</a></li>
+                  <li><a class="dropdown-item" (click)="deleteRequestById(request._id)"> Refuser </a></li>
+                  <li><a class="dropdown-item" (click)="acceptRequest(request)"> Accepter </a></li>
                 </ul>
               </div>
           </td>

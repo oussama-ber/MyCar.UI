@@ -13,11 +13,17 @@ export class CollectionComponent implements OnInit {
   constructor(private _voitureService: ServiceVoitureService) { }
 
   ngOnInit(): void {
+    this.getAllCars();
   }
   getAllCars(){
-    this._voitureService.getAllRequests().subscribe((response)=>{
-      this.carsList = response.allRequests;
+    this._voitureService.getCars().subscribe((response)=>{
+      this.carsList = response.allCars;
       this.carsListIsLoaded = true ;
     });
+  }
+  deleteCarById(carId: number){
+     this._voitureService.deleteCarById(carId).subscribe((response)=>{
+      this.getAllCars();
+     })
   }
 }
