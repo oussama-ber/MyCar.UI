@@ -14,13 +14,19 @@ export class ServiceVoitureService {
     return this.http.get<any>(`${this.baseUrl}/car/getLatestCars`);
   }
   getCars(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}`);
+    return this.http.get<any>(`${this.baseUrl}/car`);
   }
   getFilteredCars(inputFilter: FilterCarModel){
     return this.http.post<any>(`${this.baseUrl}/car/getFilteredCars`,inputFilter);
   }
   getFilter(){
     return this.http.get<any>(`${this.baseUrl}/car/getFilters`);
+  }
+  deleteCarById(carId: number){
+    const data ={
+      carId : carId
+    }
+    return this.http.post<any>(`${this.baseUrl}/car/deleteCarById`, data);
   }
 
   getCarDetailsById(carId: string){
@@ -35,6 +41,18 @@ export class ServiceVoitureService {
       requestId : requestId
     }
     return this.http.post<any>(`${this.baseUrl}/request/deleteRequestById`, data);
+  }
+  acceptRequest(requestToUpdate: RequestModel){
+    // const data ={
+    //   requestId : requestId
+    // }
+    return this.http.put<any>(`${this.baseUrl}/request/acceptRequest`, requestToUpdate);
+  }
+  saveImage(requestToUpdate: string){
+    const data ={
+      fileBase64 : requestToUpdate
+    }
+    return this.http.post<any>(`${this.baseUrl}/request/saveImage`, data);
   }
   createRequest(requestToCreate: RequestModel){
     const data = {

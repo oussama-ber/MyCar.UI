@@ -1,0 +1,62 @@
+<section class="text-gray-600 body-font ">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+      <h1 class="title-font font-medium text-3xl text-gray-900">Vendez votre voiture au meilleur prix 💰</h1>
+      <p class="leading-relaxed mt-4">Une estimation de votre voiture en 2 minutes, top chrono !</p>
+      <img class="object-cover object-center rounded" alt="hero" src="../../../assets/banner.png">
+    </div>
+    <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 sell-card-style">
+      <!-- <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2> -->
+      <form [formGroup]="createVoitureForm">
+        <div class="relative mb-4">
+          <label for="marque" class="leading-7 text-sm text-gray-600 field-text">Marque</label>
+          <input type="text" formControlName="marque" id="marque" name="marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota" >
+        </div>
+        <div class="relative mb-4">
+          <label for="version" class="leading-7 text-sm text-gray-600 field-text">Version</label>
+          <input type="text" formControlName="modele" id="version" name="version" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota V1">
+        </div>
+        <div class="relative mb-4">
+          <label for="carburant" class="leading-7 text-sm text-gray-600 field-text">Carburant </label>
+          <input type="text" formControlName="carburant" id="carburant" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+        </div>
+        <div class="relative mb-4">
+          <label for="boiteVitesse" class="leading-7 text-sm text-gray-600 field-text">Boite vittesse </label>
+          <input type="text" formControlName="boiteVitesse" id="boiteVitesse" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+        </div>
+        <div class="relative mb-4">
+          <label for="kilometrage" class="leading-7 text-sm text-gray-600 field-text">Kilometrage </label>
+          <input type="number" formControlName="kilometrage"  id="kilometrage" name="kilometrage" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+        </div>
+        <div class="relative mb-4">
+          <label for="dateMiseCirculation" class="leading-7 text-sm text-gray-600 field-text">Date Mise Circulation </label>
+          <input type="text" formControlName="dateMiseCirculation" id="dateMiseCirculation" name="dateMiseCirculation" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+        </div>
+        <div class="relative mb-4">
+          <label for="phone" class="leading-7 text-sm text-gray-600 field-text">Phone </label>
+          <input type="number" formControlName="telephone" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="(+216) 12 345 678">
+        </div>
+        <div class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-600 field-text">Email </label>
+          <input type="text" formControlName="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="jhon.deo@gmail.com">
+        </div>
+      </form>
+      <div class="text-center">
+        <button mat-stroked-button type="button" (click)="filePicker.click()">ADD EVENT POSTER</button>
+        <input type="file" #filePicker (change)="onFileSelected($event)" >
+        <!-- <input type="text" [(ngModel)]="imagePreview"> -->
+        <img [src]="'data:image/png;base64,' + base64Output" alt="Red dot" />
+        <button (click)="downloadFile()">Download File</button>
+        <a
+        [href]="base64Output"
+        [download]="'image.png'"
+        *ngIf="isValidString()"
+        >
+        Download
+        </a>
+      </div>
+        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg button-style" (click)="submitVoiture()" >Estimez votre voiture gratuitement</button>
+        <a class="inline-flex items-center mt-3 form-helper-style" href="/commentcamarche" >Comment ca marche?</a>
+      </div>
+  </div>
+</section>

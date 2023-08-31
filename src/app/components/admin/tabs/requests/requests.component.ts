@@ -12,20 +12,26 @@ export class RequestsComponent implements OnInit {
   constructor(private _voitureService: ServiceVoitureService) { }
   requests : RequestModel[] = []
   requestsIsLoaded : boolean = false;
-  ngOnInit(): void {
-    this.getRequests()
+  async ngOnInit(): Promise<void> {
+    await this.getRequests();
   }
-  getRequests(){
+  async getRequests(){
     this._voitureService.getAllRequests().subscribe((response)=>{
       this.requests = response.allRequests;
       this.requestsIsLoaded = true ;
-      console.log("id", this.requests[0]._id)
     });
   }
   deleteRequestById(requestId: number){
     // deleteRequestById
     this._voitureService.deleteRequestById(requestId).subscribe((response)=>{
-     console.log("response", response);
+      this.getRequests();
+    });
+  }
+  acceptRequest(requestToUpdate: RequestModel){
+    // deleteRequestById
+    this._voitureService.acceptRequest(requestToUpdate).subscribe(async (response)=>{
+      console.log("response",response);
+      await this.getRequests();
     });
   }
 

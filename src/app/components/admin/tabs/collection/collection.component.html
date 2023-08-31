@@ -1,7 +1,7 @@
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="-my-8 divide-y-2 divide-gray-100">
-      <table class="table"*ngIf="carsListIsLoaded" >
+      <table class="table pb-4" style="height: 50vh;" *ngIf="carsListIsLoaded" >
         <thead>
           <tr>
             <th data-label="first-name">Marque</th>
@@ -16,23 +16,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr  *ngFor="let request of carsList">
-            <td data-label="first-name">{{request.marque}}</td>
-            <td data-label="first-name">{{request.modele}}</td>
-            <td data-label="first-name">{{request.kilometrage}}</td>
-            <td data-label="first-name">{{request.carburant}}</td>
-            <td data-label="first-name">{{request.boiteVitesse}}</td>
-            <td data-label="last-name">{{request.dateMiseCirculation}}</td>
-            <td data-label="email"> {{request.prix}}</td>
-            <td data-label="email">{{request.tag}}</td>
+          <tr  *ngFor="let car of carsList">
+            <td data-label="first-name">{{car.marque}}</td>
+            <td data-label="first-name">{{car.modele}}</td>
+            <td data-label="first-name">{{car.kilometrage}}</td>
+            <td data-label="first-name">{{car.carburant}}</td>
+            <td data-label="first-name">{{car.boiteVitesse}}</td>
+            <td data-label="last-name">{{car.dateMiseCirculation}}</td>
+            <td data-label="email"> {{car.prix}}</td>
+            <td data-label="email">{{car.tag}}</td>
             <td data-label="email">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown button
                 </button>
                 <ul class="dropdown-menu">
-                  <!-- <li><a class="dropdown-item" (click)="deleteRequestById(request._id)">Refuser</a></li> -->
-                  <li><a class="dropdown-item">Accepter</a></li>
+                  <li><a class="dropdown-item">Preview</a></li>
+                  <li><a class="dropdown-item">Update</a></li>
+                  <li><a class="dropdown-item" (click)="deleteCarById(car._id)">Refuser</a></li>
                 </ul>
               </div>
           </td>
