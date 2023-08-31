@@ -57,10 +57,16 @@ export class DetailsVoitureComponent implements OnInit {
       this.isFullscreen = !this.isFullscreen;
 
       if (this.isFullscreen) {
-        const fullscreenContainer = document.querySelector('.fullscreen-container');
-        fullscreenContainer?.requestFullscreen(); // Enter fullscreen mode
+        //const fullscreenContainer = document.querySelector('.fullscreen-container');
+        //fullscreenContainer?.requestFullscreen(); // Enter fullscreen mode
       } else {
-        document.exitFullscreen(); // Exit fullscreen mode
+        //document.exitFullscreen(); // Exit fullscreen mode
+        
+        window.scroll({ 
+          top: 0, 
+          left: 0,
+          behavior: 'auto' 
+   });
       }
   }
 
