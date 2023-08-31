@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, UntypedFormGroup, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CarModel, FilterCarModel } from 'src/app/models/CarModel';
+import { CarModel, CarModelImage, FilterCarModel } from 'src/app/models/CarModel';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class LandingComponent implements OnInit {
   //#region variables
-  public latestCars: CarModel[] = []
+  public latestCars: CarModelImage[] = []
   public latestCarsIsLoaded: boolean= false;
   filterForm!: FormGroup;
   carFilter: FilterCarModel = new FilterCarModel();
@@ -37,7 +37,7 @@ export class LandingComponent implements OnInit {
   getLatestCars(){
     this._voitureService.getLastestCars().subscribe(
       (response)=>{
-        this.latestCars = response.lastestCars;
+        this.latestCars = response.allCarsDetails;
         this.latestCarsIsLoaded = true;
       },
       (error)=>{

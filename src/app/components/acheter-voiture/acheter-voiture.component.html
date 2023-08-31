@@ -124,46 +124,44 @@
         </h2>
 
         <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-          👨‍🔧 Voitures contrôlées👍 Garantie incluse👌 Satisfait ou remboursé
+          👨‍🔧 Voitures contrôlées👍 Garantie incluse
         </p>
       </div>
       <!-- text - end -->
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="grid gap-4 mx-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <!-- product - start -->
         <div
-          *ngFor="let car of filteredCars"
+          *ngFor="let carDetail of filteredCars"
           class="card-layout bg-gray-100 rounded-b-lg"
         >
           <a
             href="#"
             class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
-             [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: car._id}"
+             [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: carDetail.car._id}"
           >
+          <!-- src="../../../assets/item.png" -->
             <img
-              src="../../../assets/item.png"
+              [src]="carDetail.image?.fileURL"
               loading="lazy"
               alt="Photo by Austin Wade"
               class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
             <div
               class="absolute left-0 bottom-2 flex gap-2"
-              *ngIf="car.tag.length > 0"
+              *ngIf="carDetail.car?.tag?.length > 0"
             >
               <span
-                *ngIf="car.tag == 'Voiture Réservée'"
+                *ngIf="carDetail.car?.tag == 'Voiture Réservée'"
                 class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-                >{{ car.tag }}</span
-              >
+                >{{ carDetail.car.tag }}</span>
               <span
-                *ngIf="car.tag == 'Bonne affaire'"
+                *ngIf="carDetail.car?.tag == 'Bonne affaire'"
                 class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-                >{{ car.tag }}</span
-              >
-              <span
-                *ngIf="car.tag == 'BLA BLA'"
+                >{{ carDetail.car.tag }}</span >
+              <!-- <span
+                *ngIf="car?.tag == 'Voiture Réservée'"
                 class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-                >{{ car.tag }}</span
-              >
+                >{{ car.tag }}</span > -->
             </div>
           </a>
           <div class="row gap-2 h-20">
@@ -172,19 +170,19 @@
                 <a
                   href="#"
                   class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg"
-                  >{{ car.marque }} {{ car.modele }}</a
+                  >{{ carDetail.car.marque }} {{ carDetail.car.modele }}</a
                 >
               </div>
               <div class="row"></div>
               <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
-                >{{ car.dateMiseCirculation | date : "yyyy" }} |
-                {{ car.kilometrage }} | {{ car.carburant }} |
-                {{ car.boiteVitesse }}</span
+                >{{ carDetail.car.dateMiseCirculation | date : "yyyy" }} |
+                {{ carDetail.car.kilometrage }} | {{ carDetail.car.carburant }} |
+                {{ carDetail.car.boiteVitesse }}</span
               >
             </div>
             <div class="col flex justify-end items-start pt-3 ps-0 pe-3">
               <span class="font-bold text-gray-600 lg:text-sm"
-                >{{ car.prix }} TND</span
+                >{{ carDetail.car.prix }} TND</span
               >
             </div>
           </div>

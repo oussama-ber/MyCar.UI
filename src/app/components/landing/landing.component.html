@@ -70,37 +70,37 @@
       <p class="lg:w-1/2 w-full leading-relaxed text-gray-500 content-style">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
     </div>
     <div class="flex flex-wrap -m-4">
-      <div class="xl:w-1/4 md:w-1/2 p-4 " *ngFor="let car of latestCars" >
+      <div class="xl:w-1/4 md:w-1/2 p-4 " *ngFor="let carDetail of latestCars" >
         <div class="card-layout bg-gray-100 rounded-b-lg card-wrapper" >
         <a
           href="#"
           class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
-          routerLink="/detailsvoiture"
+          [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: carDetail.car._id}"
         >
           <img
-            src="../../../assets/item.png"
+            [src]="carDetail.image?.fileURL"
             loading="lazy"
-            alt="Photo by Austin Wade"
+            alt="Car image"
             class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
           />
           <div
             class="absolute left-0 bottom-2 flex gap-2"
-            *ngIf="car.tag.length > 0"
+            *ngIf="carDetail.car.tag.length > 0"
           >
             <span
-              *ngIf="car.tag == 'Voiture Réservée'"
+              *ngIf="carDetail.car.tag == 'Voiture Réservée'"
               class="rounded-r-lg bg-red-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-              >{{ car.tag }}</span
+              >{{ carDetail.car.tag }}</span
             >
             <span
-              *ngIf="car.tag == 'Bonne affaire'"
+              *ngIf="carDetail.car.tag == 'Bonne affaire'"
               class="rounded-r-lg bg-yellow-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-              >{{ car.tag }}</span
+              >{{ carDetail.car.tag }}</span
             >
             <span
-              *ngIf="car.tag == 'BLA BLA'"
+              *ngIf="carDetail.car.tag == 'BLA BLA'"
               class="rounded-r-lg bg-green-500 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white"
-              >{{ car.tag }}</span
+              >{{ carDetail.car.tag }}</span
             >
           </div>
         </a>
@@ -110,19 +110,19 @@
               <a
                 href="#"
                 class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg"
-                >{{ car.marque }} {{ car.modele }}</a
+                >{{ carDetail.car.marque }} {{ carDetail.car.modele }}</a
               >
             </div>
             <div class="row"></div>
             <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
-              >{{ car.dateMiseCirculation | date : "yyyy" }} |
-              {{ car.kilometrage }} | {{ car.carburant }} |
-              {{ car.boiteVitesse }}</span
+              >{{ carDetail.car.dateMiseCirculation | date : "yyyy" }} |
+              {{ carDetail.car.kilometrage }} | {{ carDetail.car.carburant }} |
+              {{ carDetail.car.boiteVitesse }}</span
             >
           </div>
           <div class="col-3 flex justify-start items-start pt-3 ps-0 pe-3">
             <span class="font-bold text-gray-600 lg:text-sm"
-              >{{ car.prix }} TND</span
+              >{{ carDetail.car.prix }} TND</span
             >
           </div>
         </div>
@@ -196,7 +196,7 @@
             <h2 class="text-gray-900 text-lg title-font font-medium feature-text-style">Garantie incluse</h2>
           </div>
           <div class="flex-grow">
-            <p class="leading-relaxed text-base">CapCar, c’est presque comme du neuf, sans le prix du neuf, avec une garantie de 6 mois minimum.</p>
+            <p class="leading-relaxed text-base">MyAuto, c’est presque comme du neuf, sans le prix du neuf, avec une garantie de 6 mois minimum.</p>
             <a class="mt-3 text-indigo-500 inline-flex items-center" routerLink="/commentcamarche">En savoir plus
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>

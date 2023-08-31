@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, debounceTime, takeUntil } from 'rxjs';
-import { CarModel, FilterCarModel } from 'src/app/models/CarModel';
+import { CarModel, CarModelImage, FilterCarModel } from 'src/app/models/CarModel';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
 import { SharedService } from 'src/app/services/shared.service';
 @Component({
@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class AcheterVoitureComponent implements OnInit {
   carFilter: FilterCarModel = new FilterCarModel();
-  filteredCars: CarModel[] = [];
+  filteredCars: CarModelImage[] = [];
   filteredCarsIsLoaded: boolean = false;
   public prixMinSubject = new Subject<any>();
   public prixMaxSubject = new Subject<any>();
@@ -84,7 +84,7 @@ export class AcheterVoitureComponent implements OnInit {
     await  this.getInputFilter();
     await this.getFilterDetails();
     // await this.initializeFiler();
-    await this.getAllCars();
+    // await this.getAllCars();
     await this.getFilteredCars();
   }
   addDeletedCarburant(input :string){
@@ -139,7 +139,8 @@ export class AcheterVoitureComponent implements OnInit {
   async getFilteredCars(){
     await this._voitureService.getFilteredCars(this.carFilter).subscribe(
       (response)=>{
-      this.filteredCars = response.allCars;
+      this.filteredCars = response.allCarsDetails;
+      console.log("this.filteredCars",this.filteredCars)
       this.filteredCarsIsLoaded = true;
     },
 

@@ -22,5 +22,5 @@
 </div>
 <app-requests *ngIf="isRequests"></app-requests>
 <app-collection *ngIf="isGallery"></app-collection>
-<app-create-voiture *ngIf="isCreateVoiture"></app-create-voiture>
+<app-create-voiture *ngIf="isCreateVoiture" (backToGallery)="backToGallery()" ></app-create-voiture>
 

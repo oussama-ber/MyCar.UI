@@ -46,6 +46,15 @@ export class CarModel{
     this.prix = prix;
   }
 }
+export class CarModelImage{
+  car: CarModel;
+  image: ImageModel;
+}
+export class ImageModel{
+  _id: string = "0"
+  voitureId: string = "";
+  fileURL: string = "";
+}
 export class RequestModel{
   _id: number = 0
   marque: string = "";
