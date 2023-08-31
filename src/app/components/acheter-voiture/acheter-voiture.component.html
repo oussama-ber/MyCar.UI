@@ -137,7 +137,7 @@
           <a
             href="#"
             class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100 h-56"
-            routerLink="/detailsvoiture"
+             [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: car._id}"
           >
             <img
               src="../../../assets/item.png"
