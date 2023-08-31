@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, UntypedFormBuilder } from '@angular/forms';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
 import { mimeType } from './mime-type.validator';
@@ -31,6 +31,7 @@ export class CreateVoitureComponent implements OnInit {
   selectedControl: number = 1;
   uploadedFiles: File [] = [];
   uploadedFileNames: string [] = [];
+  @Output() backToGallery = new EventEmitter();
   constructor(private _fb : UntypedFormBuilder, private _voitureService: ServiceVoitureService, private fireStorage:AngularFireStorage) { }
 
   ngOnInit(): void {
@@ -117,7 +118,6 @@ export class CreateVoitureComponent implements OnInit {
     })
   }
   submitVoiture(){
-    if(this.createVoitureFormGeneral.valid){
 
       const data =
        {
@@ -189,9 +189,21 @@ export class CreateVoitureComponent implements OnInit {
         etatInterieur : this.inputAllEtatInterieur,
       }
 
-
-
-    }
+      this._voitureService.createOffreVoiture(data).subscribe(async (res)=>{
+        if(this.uploadedFiles.length > 0){
+          for (let index = 0; index < this.uploadedFiles.length; index++) {
+            let path = `CarImages/${this.uploadedFiles[index].name}`;
+            let copyPath = path;
+            copyPath = copyPath + new Date();
+            const uploadTask =await this.fireStorage.upload(copyPath,this.uploadedFiles[index]);
+            const url = await uploadTask.ref.getDownloadURL()
+            await this._voitureService.saveImages(url, res.createdCar._id).subscribe((rs)=>{
+              console.log(rs);
+            });
+          }
+        }
+        this.backToGallery.emit({});
+      })
 
   }
   updateSelectedControl(value: number){

@@ -8,7 +8,7 @@ export class ServiceVoitureService {
 
   constructor(private http: HttpClient, private router: Router) { }
   baseUrl: string = "http://localhost:5000/api";
-  // baseUrl: string = "https://myauto-service-api.onrender.com/api/car";
+  // baseUrl: string = "https://myauto-service-api.onrender.com/api";
 
   getLastestCars(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/car/getLatestCars`);
@@ -54,12 +54,12 @@ export class ServiceVoitureService {
     }
     return this.http.post<any>(`${this.baseUrl}/request/saveImage`, data);
   }
-  testImage(requestToUpdate: string, carId: string){
+  saveImages(requestToUpdate: string, carId: string){
     const data = {
       imageUrl: requestToUpdate,
       carId: carId
     }
-    return this.http.post<any>(`${this.baseUrl}/request/testImage`, data);
+    return this.http.post<any>(`${this.baseUrl}/request/saveImage`, data);
   }
   createRequest(requestToCreate: RequestModel){
     const data = {
@@ -75,7 +75,7 @@ export class ServiceVoitureService {
     return this.http.post<any>(`${this.baseUrl}/request/saveRequest`, data);
   }
   createOffreVoiture(data: Object){
-    return this.http.post<any>(`${this.baseUrl}/request/saveRequest`, data);
+    return this.http.post<any>(`${this.baseUrl}/car/saveOffreVoiture`, data);
   }
   //#endregion Request calls
 }

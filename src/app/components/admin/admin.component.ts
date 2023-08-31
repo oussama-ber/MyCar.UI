@@ -16,6 +16,12 @@ public isCreateVoiture : boolean = false ;
     this.isRequests = false;
     this.isCreateVoiture = false;
   }
+  backToGallery(){
+    console.log("getting aboutput ")
+    this.isGallery = true;
+    this.isRequests = false;
+    this.isCreateVoiture = false;
+  }
   onClickTab(tabName: string){
     switch (tabName) {
       case "requests":
