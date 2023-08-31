@@ -4,3 +4,24 @@
   font-weight:var(--text-title-wheight);
   color: var(--text-color);
 }
+.nav-wrapper{
+  background-color: var(--secondary-bg-color);
+  height: 3rem;
+}
+.nav-height{
+  height: 3rem;
+}
+.nav-link-style{
+  color: var(----main-bg-color);
+  font-family: var(--text-family);
+  font-size: var(--text-size);
+
+}
+nav a:hover ,nav a:active{
+  color: aliceblue !important;
+  font-weight: 600;
+}
+nav a:active{
+  color: aliceblue !important;
+  font-weight: 600;
+}

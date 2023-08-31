@@ -9,7 +9,7 @@
 .side-bar {
   width: 350px;
   // height: 100vh;
-  background:rgb(255, 255, 255) ;
+  background:var( --main-bg-color) ;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -116,24 +116,31 @@
 }
 
 .lable-bg{
-  background:rgb(255, 255, 255) ;
+  background:var(--main-bg-color);
 
 }
 .filter-title-style{
+  color: var(--text-color-light);
   font-family: "Montserrat", sans-serif;
   font-size: 19px !important;
   font-weight: 700;
 }
 .title-style{
+  color: var(--text-color-light);
+
   font-family: "Montserrat", sans-serif;
   font-size: 17px !important;
   font-weight: 600;
 }
 .check-style{
+  color: var(--text-color-light);
   font-family: "Montserrat", sans-serif;
   font-size: 15px !important;
   font-weight: 500;
 }
 .input-bg{
-  background-color: rgb(36 110 185 / 9%);
+  background-color: var(--text-color-light);
+}
+.flex-col label{
+  color: var(--text-color-light);
 }

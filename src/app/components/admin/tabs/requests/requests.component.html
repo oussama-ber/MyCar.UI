@@ -1,7 +1,7 @@
-<section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="-my-8 divide-y-2 divide-gray-100">
-      <table class="table" style="height: 50vh;"*ngIf="requestsIsLoaded" >
+<section class="text-gray-600 body-font overflow-hidden  section-style  section-bg">
+  <div class="container px-1 py-24 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-100 table-container">
+      <table class="table table-style" *ngIf="requestsIsLoaded" >
         <thead>
           <tr>
             <th data-label="first-name">Marque</th>
@@ -31,8 +31,8 @@
             <td data-label="last-name">{{request.tag}}</td>
             <td data-label="email">
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
+                <button class="btn btn-secondary dropdown-toggle kebab-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" (click)="deleteRequestById(request._id)"> Refuser </a></li>

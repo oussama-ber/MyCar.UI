@@ -1,11 +1,11 @@
 .sell-card-style{
-  background-color: #E8F0FE;
+  background-color: var(--main-bg-color);
 }
 .field-text{
 font-family: var( --text-family);
 font-size: var(--text-size);
 font-weight:var(--text-title-wheight);
-color: var(--text-color);
+color: var(--text-color-light);
 }
 .button-style{
 background-color: var(--accent-bg-color);
@@ -17,10 +17,87 @@ display: flex;
 align-content: center;
 align-items: center;
 }
+.next-button-style{
+background-color: var(--accent-bg-color);
+color: var(--text-color-light) !important;
+justify-content: center;
+font-weight: 500 !important;
+gap: 5px;
+display: flex;
+align-content: center;
+align-items: center;
+}
+.previous-button-style{
+background-color: var(--accent-bg-color);
+color: var(--text-color-light) !important;
+justify-content: center;
+font-weight: 500 !important;
+gap: 5px;
+display: flex;
+align-content: center;
+align-items: center;
+padding: 0.5rem;
+margin: 1rem;
+border-radius: 8px;
+width: 7rem;
+}
 .form-helper-style{
 color: var(--secondary-bg-color) !important;
 font-family: var( --text-family);
 font-size: var(--text-size);
 font-weight: var(--text-title-wheight);
 text-decoration: underline;
+}
+.h-1-style{
+  font-size: var( --h-1-text);
+  font-family: var( --text-family);
+  font-weight: var(--text-title-wheight);
+  color:var(--text-color-light);
+}
+.h-2-style{
+  color: var(--text-color-light);
+  font-size: var(--h-2-text);
+  font-family: var( --text-family);
+}
+.disabled-button{
+  background-color: grey;
+  color: var(--text-color-light);
+}
+.right-form-body{
+  height: 520px;
+  overflow-y: auto;
+}
+.item-style{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  font-weight: 600;
+  font-family: var(--text-family);
+}
+.card-style{
+  height: 200rem;
+}
+.upload-wrapper{
+  display: flex;
+    justify-content: end;
+
+}
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-list li {
+  list-style-type: none;
+  padding: 5px;
+  text-align: center;
+  text-align: start;
+  color: var(--text-color-light);
+}
+.files-title{
+  color: var(--text-color-light);
+  font-size: medium;
+  font-family: var(--text-family);
 }

@@ -1,138 +1,70 @@
-$cubic-out: cubic-bezier(.32,2.04,.85,.54);
-$cubic-in: cubic-bezier(.72,1.2,.71,.72);
-$nunito: 'Nunito', sans-serif;
-$roboto: Roboto, sans-serif;
-
-$cyan: #00bcd4;
-$yellow: #ffeb3b;
-$grey: #9e9e9e;
-
-$shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
-table{
-  border:0;
-  width: 100%;
-  margin:0;
-  padding:0;
+table.table tr th {
+  height: 3rem;
+background-color: var(--main-bg-color);
+color: var(--text-color-light);
+padding-bottom: 0.8rem;
+font-family: var(--text-family);
+font-size:19px ;
+font-weight: 500;
+}
+table.table tr {
+  border-radius: 10px;
+}
+table.table{
   border-collapse: collapse;
-  border-spacing: 0;
-  box-shadow: 0 1px 1px rgba(0,0,0,.3);
-thead{
-      background: #F0F0F0;
-      height: 60px!important;
-  tr{
-    th:first-child{
-      padding-left:45px;
-    }
-    th{
-      text-transform: uppercase;
-      line-height:60px!important;
-      text-align: left;
-      font-size:11px;
-      padding-top:0px!important;
-       padding-bottom:0px!important;
-    }
-  }
+  border-radius: 1em;
+  overflow: hidden;
 }
-tbody{
-  background: #fff;
-  tr{
-    border-top:1px solid #e5e5e5;
-    height: 60px;
-    td:first-child{
-      padding-left:45px;
-    }
-    td{
-      height: 60px;
-      line-height: 60px!important;
-      text-align: left;
-      padding:0 10px;
-      font-size:14px;
+table.table tr td {
+  height: 3rem;
+background-color: #e5e8e9b0;
+color: var(--text-color);
+padding-bottom: 0.8rem;
+font-family: var(--text-family);
+font-size:var(--text-size) ;
 
-      i{
-        margin-right:8px;
-      }
-    }
-  }
 }
-}
-@media screen and (max-width: 800px) {
-table{
-  border: 1px solid transparent;
-  box-shadow: none;
-  thead{
-    display: none;
-  }
-  tbody{
-    tr{
-      border-bottom: 45px solid #F8F8F8;
-      td:first-child{
-        padding-left:10px;
+.kebab-style{
+  border-style: none;
+  background: transparent;
 
-      }
-      td:before{
-        content: attr(data-label);
-        float: left;
-        font-size:10px;
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-      td{
-        display: block;
-        text-align: right;
-        font-size: 14px;
-        padding: 0px 10px!important;
-        box-shadow: 0 1px 1px rgba(0,0,0,.3);
-      }
-    }
-  }
 }
-}
-.kebab {
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0 16px;
-  top: 12px;
-  figure {
-    width: 6px;
-    height: 6px;
-    border-radius: 5px;
-    background: $cyan;
-    margin: 3px 0;
-  }
+.kebab-style:active{
+  border-style: none;
+  background: transparent;
+
 }
 
-.middle {
-  transition: all 0.25s $cubic-in;
-  transform: scale(1);
-  position: relative;
-  box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
-  -webkit-filter: blur(.1px);
-  filter: blur(.1px);
+button ul {
+  background-color: azure;
 }
-
-.middle.active {
-  transform: scale(4.5);
-  transition: all 0.25s $cubic-out;
-  box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+button ul li a {
+  color: var(--main-bg-color) !important;
 }
-
-.cross {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  margin-top: -1px;
-  font-family: $nunito;
-  color: white;
-  transition: all 0.2s $cubic-in;
-  font-size: 22px;
-  user-select: none;
+.dropdown-item:active ,.dropdown-item:hover {
+  color: var(--text-color-light);
+  text-decoration: none;
+  background-color: var(--main-bg-color);
 }
-
-.cross.active {
-  transform: translate(-50%, -50%) scale(1);
-  transition: all 0.15s $cubic-out;
+.dropdown-toggle::after {
+  visibility: hidden !important;
 }
-
+i.fa-solid{
+  color: var(--main-bg-color);
+}
+.section-bg{
+  background-color: var(--bg-section);
+}
+.table-style{
+  border-radius: 8px;
+  border: 1px solid var(--neutral-600, #EAEBF0);
+  background: var(--base-white, #FFF);
+  box-shadow: 0px 1px 2px 0px rgb(125 141 172 / 44%);
+}
+.section-style{
+  height: 50vh;
+}
+.table-container{
+  max-height: 500px;
+  overflow-y: auto;
+}

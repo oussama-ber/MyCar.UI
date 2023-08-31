@@ -19,6 +19,9 @@ import { RequestsComponent } from './components/admin/tabs/requests/requests.com
 import { CollectionComponent } from './components/admin/tabs/collection/collection.component';
 import { CreateVoitureComponent } from './components/admin/tabs/create-voiture/create-voiture.component';
 import { FaqComponent } from './components/faq/faq.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { FaqComponent } from './components/faq/faq.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [ServiceVoitureService, SharedService],
   bootstrap: [AppComponent]
