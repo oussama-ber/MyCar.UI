@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './components/admin/tabs/requests/requests.component';
 import { CollectionComponent } from './components/admin/tabs/collection/collection.component';
 import { CreateVoitureComponent } from './components/admin/tabs/create-voiture/create-voiture.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CreateVoitureComponent } from './components/admin/tabs/create-voiture/c
     DetailsVoitureComponent,
     RequestsComponent,
     CollectionComponent,
-    CreateVoitureComponent
+    CreateVoitureComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

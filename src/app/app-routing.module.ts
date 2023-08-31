@@ -8,6 +8,7 @@ import { CommentCaMarcheComponent } from './components/comment-ca-marche/comment
 import { VendreVoitureComponent } from './components/vendre-voiture/vendre-voiture.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailsVoitureComponent } from './components/details-voiture/details-voiture.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'detailsvoiture', component: DetailsVoitureComponent},
   { path: 'vendrevoiture', component: VendreVoitureComponent},
   { path: 'commentcamarche', component: CommentCaMarcheComponent},
+  { path: 'faq', component: FaqComponent},
   { path: 'admin', component: AdminComponent},
   { path: '**', component: LandingComponent},
 ];

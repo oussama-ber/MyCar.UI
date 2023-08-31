@@ -1,144 +1,63 @@
-<!-- section details + images-->
-<div class="bg-white py-6 sm:py-8 lg:py-12">
+<div class="fullscreen-container " *ngIf="isFullscreen" (click)="toggleFullscreen()">
+    <img src="../../../assets/peugeot207cc.jpg" class="" loading="lazy" alt="Photo by Himanshu Dewangan" class="object-cover object-center" />
+</div>
+<div class="bg-white py-6 sm:py-8 lg:py-12" *ngIf="!isFullscreen">
     <div class="row flex flex-row justify-content-space-around">
-        <div class="flex flex-col lg:w-2/3 justify-content-center pl-20">
+        <div class="flex flex-col lg:w-2/3 justify-content-center pl-20 pr-12">
             <div class="bg-white pb-6 sm:pb-8 lg:pb-12 row d-flex justify-content-center">
+                
+                
+                
                 <!--photos-->
                 <div class="mx-auto max-w-screen-xl px-4 py-4 md:px-8">
-                <div class="grid gap-8 md:grid-cols-2">
+                <div class="">
                   <!-- images - start -->
                   <div class="grid gap-4 lg:grid-cols-5">
-                    <div class="order-last flex gap-4 lg:order-none lg:flex-col">
-                      <div class="overflow-hidden rounded-lg bg-gray-100">
-                        <img src="../../../assets/peugeot207cc.jpg" loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
+                    <div class="relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4" style="max-height: 23rem">
+                        <img #mainImg (click)="toggleFullscreen()" [src]=selectedMainImage loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
+                        <span class="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">Bonne Affaire</span>
+                      </div>
+
+                    <div class="order-last flex gap-3 lg:order-none lg:flex-col">
+                      <div class="overflow-hidden rounded-lg bg-gray-100" (click)="switchImage(0)" style="max-height: 5rem;">
+                        <img [src]=imgList[0] loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
                       </div>
                   
-                      <div class="overflow-hidden rounded-lg bg-gray-100">
-                        <img src="../../../assets/peugeot207cc.jpg" loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
+                      <div class="overflow-hidden rounded-lg bg-gray-100" (click)="switchImage(1)" style="max-height: 5rem;">
+                        <img [src]=imgList[1] loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
                       </div>
                   
-                      <div class="overflow-hidden rounded-lg bg-gray-100">
-                        <img src="../../../assets/peugeot207cc.jpg" loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
+                      <div class="overflow-hidden rounded-lg bg-gray-100" (click)="switchImage(2)" style="max-height: 5rem;">
+                        <img [src]=imgList[2] loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
                       </div>
-                    </div>
-                
-                    <div class="relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
-                      <img src="../../../assets/peugeot207cc.jpg" loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
-                  
-                      <span class="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">sale</span>
-                  
-                      <!-- <a href="#" class="absolute right-4 top-4 inline-block rounded-lg border bg-white px-3.5 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:text-gray-700 md:text-base">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                      </a> -->
+                      <div class="overflow-hidden rounded-lg bg-gray-100" (click)="switchImage(3)" style="max-height: 5rem;">
+                        <img [src]=imgList[3] loading="lazy" alt="Photo by Himanshu Dewangan" class="h-full w-full object-cover object-center" />
+                      </div>
                     </div>
                   </div>
                   <!-- images - end -->
-              
-                  <!-- content - start -->
-                  <div class="md:py-8">
-                    <!-- name - start -->
-                    <div class="mb-2 md:mb-3">
-                      <span class="mb-0.5 inline-block text-gray-500">Peugeot</span>
-                      <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">Peugeot 207 CC</h2>
-                    </div>
-                    <!-- name - end -->
-                
-                    <!-- rating - start -->
-                    <!-- <div class="mb-6 flex items-center gap-3 md:mb-10">
-                      <div class="flex h-7 items-center gap-1 rounded-full bg-indigo-500 px-2 text-white">
-                        <span class="text-sm">4.2</span>
-                      
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      </div>
-                  
-                      <span class="text-sm text-gray-500 transition duration-100">57 ratings</span>
-                    </div> -->
-                    <!-- rating - end -->
-                
-                    <!-- color - start -->
-                    <!-- <div class="mb-4 md:mb-6">
-                      <span class="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Color</span>
-                  
-                      <div class="flex flex-wrap gap-2">
-                        <span class="h-8 w-8 rounded-full border bg-gray-800 ring-2 ring-gray-800 ring-offset-1 transition duration-100"></span>
-                        <button type="button" class="h-8 w-8 rounded-full border bg-gray-500 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                        <button type="button" class="h-8 w-8 rounded-full border bg-gray-200 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                        <button type="button" class="h-8 w-8 rounded-full border bg-white ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                      </div>
-                    </div> -->
-                    <!-- color - end -->
-                
-                    <!-- size - start -->
-                    <!-- <div class="mb-8 md:mb-10">
-                      <span class="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Size</span>
-                  
-                      <div class="flex flex-wrap gap-3">
-                        <button type="button" class="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">XS</button>
-                        <button type="button" class="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">S</button>
-                        <span class="flex h-8 w-12 cursor-default items-center justify-center rounded-md border border-indigo-500 bg-indigo-500 text-center text-sm font-semibold text-white">M</span>
-                        <button type="button" class="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">L</button>
-                        <span class="flex h-8 w-12 cursor-not-allowed items-center justify-center rounded-md border border-transparent bg-white text-center text-sm font-semibold text-gray-400">XL</span>
-                      </div>
-                    </div> -->
-                    <!-- size - end -->
-                
-                    <!-- price - start -->
-                    <div class="mb-4">
-                      <div class="flex items-end gap-2">
-                        <span class="text-xl font-bold text-gray-800 md:text-2xl">15000TND</span>
-                        <span class="mb-0.5 text-red-500 line-through">20000TND</span>
-                      </div>
-                  
-                      <span class="text-sm text-gray-500">remarque (guarantie)</span>
-                    </div>
-                    <!-- price - end -->
-                
-                    <!-- shipping notice - start -->
-                    <div class="mb-6 flex items-center gap-2 text-gray-500">
-                      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-                      </svg> -->
-                  
-                      <!-- <span class="text-sm">2-4 day shipping</span> -->
-                    </div>
-                    <!-- shipping notice - end -->
-                
-                    <!-- buttons - start -->
-                    <div class="flex gap-2.5">
-                      <a href="#" class="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base">Reserver</a>
-                  
-                      <!-- <a href="#" class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Buy now</a> -->
-                    </div>
-                    <!-- buttons - end -->
-                  </div>
-                  <!-- content - end -->
                 </div>
                 </div>
 
                 <!-- banner - start -->
-                <div class="relative flex flex-wrap bg-indigo-500 rounded-3xl px-4 py-3 shadow-md vend-voiture-card" style="width: 78rem;">
+                <div class="relative flex flex-wrap bg-indigo-500 rounded-3xl px-4 py-3 shadow-md vend-voiture-card drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]" style="width: 78rem;">
                   <div class="row flex flex-row justify-content-space-around w-full">
 
                     <div class="flex flex-col lg:w-1/5 text-center align-middle font-bold">
                         <span class="emoji ">  🤝 👨‍🔧 🏆</span>
-                        Voitures contrôlées 
+                        <span class="banner-text"> Voitures contrôlées </span> 
                     </div>
                     <div class="flex flex-col lg:w-1/5 text-center font-bold">
                         <span class="emoji ">  🤝 👨‍🔧 🏆</span>
-                        Garantie incluse
+                         <span class="banner-text">Garantie incluse</span>
                     </div>
-                    <div class="flex flex-col lg:w-3/5 text-center font-bold">
-                        Vehicule contrôlée par notre agent <b>David</b>
+                    <div class="flex flex-col lg:w-3/5 text-center font-bold justify-content-center">
+                         <span class="banner-text">Vehicule contrôlée par notre agent <b>David</b></span>
                     </div>
                   </div>
                 </div>
                 <!-- banner - end -->
-              </div>
+            </div>
           
           
           
@@ -148,16 +67,22 @@
             <div class="row d-flex justify-content-center">
             <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 20rem;">
               <div class="card-body">
-                <h5 class="card-title fs-1 text-blue-700">Informations clés</h5>
-                <div class="div row flex items-start h-full">
+                <h5 class="card-title card-title-style">Informations clés</h5>
+                <div class="div row flex items-start h-full banner-text pt-3">
                   <div class="div col-6 flex flex-col">
-                    <p class="fs-3 py-1">Version : <b>207 CC</b></p>
-                    <p class="fs-3 py-1">Date mise en circulation : <b>01/10/2009</b></p>
-                    <p class="fs-3 py-1">Carburant : <b>Essence</b></p>
+                      <!-- <p class="fs-3 py-1">Modele : <b>{{details.car.modele}}</b></p> -->
+                    <p class="card-text-style pt-1">Modele</p>
+                    <p class="card-subTitle-style">{{details.car.modele}}</p>
+                    <p class="card-text-style pt-3">Date mise en Circulation</p>
+                    <p class="card-subTitle-style">{{details.car.dateMiseCirculation | date:'dd-MM-yyyy'}}</p>
+                    <p class="card-text-style pt-3">Carburant</p>
+                    <p class="card-subTitle-style">{{details.car.carburant}}</p>
                   </div>
                   <div class="div col-6 flex flex-col">
-                    <p class="fs-3 py-1">Boite de vitesse : <b>Manuelle</b></p>
-                    <p class="fs-3 py-1">kilometrage : <b>Manuelle</b></p>
+                    <p class="card-text-style pt-1">Boite de vitesse</p>
+                    <p class="card-subTitle-style">{{details.car.boiteVitesse}}</p>
+                    <p class="card-text-style pt-3">Kilométrage</p>
+                    <p class="card-subTitle-style">{{details.car.kilometrage}}</p>
                   </div>
                   
                 </div>
@@ -169,9 +94,35 @@
             <!-- section options-->
 
             <div class="row d-flex justify-content-center ">
-            <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 30rem;">
+            <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; min-height: 20rem;">
               <div class="card-body">
-                <h5 class="card-title fs-1 text-blue-700">Principaux équipements & Options</h5>
+                <h5 class="card-title fs-1 text-blue-700 banner-title">Principaux équipements & Options</h5>
+
+                <div class="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-2 lg:gap-8">
+                    <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                        <div *ngFor="let option of details.car.options; let odd=odd; let even=even">    
+                            <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="even">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                  <path d="M22 4L12 14.01l-3-3"></path>
+                                </svg>
+                                <span class="title-font font-medium">{{option}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                        <div *ngFor="let option of details.car.options; let odd=odd; let even=even">    
+                            <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="odd">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                  <path d="M22 4L12 14.01l-3-3"></path>
+                                </svg>
+                                <span class="title-font font-medium">{{option}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <h5 class="card-title fs-1 text-blue-700">Principaux équipements & Options</h5>
         
                     <div class="container px-5 py-4 mx-auto">
                         
@@ -230,105 +181,132 @@
                             <span class="title-font font-medium">option 6</span>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                       <!-- <button class="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button> -->
-                    </div>
+                    <!--</div> -->
               </div>
             </div>
               </div>
           
-              <!-- section entretien-->
-              <div class="row d-flex justify-content-center">
-            <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 50rem;">
+            <!-- section exterieur-->
+
+            <div class="row d-flex justify-content-center ">
+                <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; min-height: 20rem;">
+                  <div class="card-body">
+                    <h5 class="card-title fs-1 text-blue-700 banner-title">État extérieur</h5>
+    
+                    <div class="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-2 lg:gap-8">
+                        <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                            <div *ngFor="let ex of details.car.etatExterieur; let odd=odd; let even=even">    
+                                <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="even">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                      <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">{{ex.exTitre}}</span><br>
+                                    <span class="title-font font-small">{{ex.exDescription}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                            <div *ngFor="let ex of details.car.etatExterieur; let odd=odd; let even=even">    
+                                <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="odd">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                      <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">{{ex.exTitre}}</span><br>
+                                    <span class="title-font font-small">{{ex.exDescription}}</span>                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- section interieur-->
+
+            <div class="row d-flex justify-content-center ">
+                <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; min-height: 20rem;">
+                  <div class="card-body">
+                    <h5 class="card-title fs-1 text-blue-700 banner-title">État intérieur</h5>
+    
+                        <div class="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-2 lg:gap-8">
+                        <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                            <div *ngFor="let in of details.car.etatInterieur; let odd=odd; let even=even">    
+                                <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="even">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                      <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">{{in.eiTitre}}</span><br>
+                                    <span class="title-font font-small">{{in.eiDescription}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col rounded-lg  p-4 pt-6 p-2">
+                            <div *ngFor="let in of details.car.etatInterieur; let odd=odd; let even=even">    
+                                <div class="bg-white rounded flex p-4 items-center mt-4" *ngIf="odd">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                      <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                      <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">{{in.eiTitre}}</span><br>
+                                    <span class="title-font font-small">{{in.eiDescription}}</span>                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- section entretien-->
+            <div class="row d-flex justify-content-center">
+            <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; min-height: 50rem;">
               <div class="card-body">
-                <h5 class="card-title fs-1 text-blue-700">Historique d’entretien</h5>
+                <h5 class="card-title fs-1 text-blue-700 banner-title">Historique d’entretien</h5>
                 <div class="container px-5 mx-auto flex flex-wrap">
                     <div class="flex flex-wrap w-full">
-                      <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                      <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6 banner-text">
                         <div class="flex relative pb-12">
                           <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
                             <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
                           </div>
                           <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
+                            <i class="fa fa-flag" aria-hidden="true"></i>
                           </div>
                           <div class="flex-grow pl-4">
-                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Entretien 1</h2>
-                            <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
+                            <h2 class="font-medium mb-1 tracking-wider">Kilometrage      Date</h2>
+                            <p class="leading-relaxed">{{details.historyDetails[0].Kilometrage}}      {{details.historyDetails[0].Date}}</p>
                           </div>
                         </div>
-                        <div class="flex relative pb-12">
-                          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                        <div class="flex relative pb-12" *ngFor="let entretien of details.historyDetails; let index=index; let last=last">
+                          <div *ngIf="!last" class="h-full w-10 absolute inset-0 flex items-center justify-center">
                             <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
                           </div>
-                          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
+                          <div  class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
                           </div>
                           <div class="flex-grow pl-4">
-                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Entretien 2</h2>
-                            <p class="leading-relaxed">Vice migas literally kitsch +1 pok pok. Truffaut hot chicken slow-carb health goth, vape typewriter.</p>
-                          </div>
-                        </div>
-                        <div class="flex relative pb-12">
-                          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                          </div>
-                          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                              <circle cx="12" cy="5" r="3"></circle>
-                              <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-                            </svg>
-                          </div>
-                          <div class="flex-grow pl-4">
-                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Entretien 3</h2>
-                            <p class="leading-relaxed">Coloring book nar whal glossier master cleanse umami. Salvia +1 master cleanse blog taiyaki.</p>
-                          </div>
-                        </div>
-                        <div class="flex relative pb-12">
-                          <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                            <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                          </div>
-                          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                              <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                          </div>
-                          <div class="flex-grow pl-4">
-                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Entretien 4</h2>
-                            <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                          </div>
-                        </div>
-                        <div class="flex relative">
-                          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                          </div>
-                          <div class="flex-grow pl-4">
-                            <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Entretien 5</h2>
-                            <p class="leading-relaxed">Pitchfork ugh tattooed scenester echo park gastropub whatever cold-pressed retro.</p>
+                            <h2 class="font-medium mb-1 tracking-wider">Entretien {{details.historyDetails.length - index}}</h2>
+                            <p class="leading-relaxed">{{entretien.Kilometrage}}  {{entretien.Date}}</p>
                           </div>
                         </div>
                       </div>
-                      <!-- <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step"> -->
                     </div>
                   </div>
               </div>
             </div>
-              </div>
+            </div>
           
 
             <!-- section controle mecanique-->
             <div class="row d-flex justify-content-center">
-                <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 41rem;">
+                <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; min-height: 41rem;">
               <div class="card-body">
-                <h5 class="card-title fs-1 text-blue-700">Contrôle mécanique</h5>
+                <h5 class="card-title fs-1 text-blue-700 banner-title">Contrôle mécanique</h5>
                 <div class="container  py-4 mx-auto">  
                     <div class="row d-flex justify-content-center">      
                         <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2">
@@ -401,10 +379,10 @@
                                                 Type de pneu : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
-                                                <b>Autre</b> 
-                                                <b>195/55 R16</b>
-                                                <b>5mm (50% d'usure)</b>
-                                                <b>4 saisons</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVG.marque}}</b> 
+                                                <b>{{details.controleMecanique.pneumatique.pAVG.dimensions}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVG.profondeurRestante}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVG.typePneu}}</b>
                                             </div>
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
@@ -416,10 +394,10 @@
                                                 Type de pneu : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
-                                                <b>Autre</b> 
-                                                <b>195/55 R16</b>
-                                                <b>5mm (50% d'usure)</b>
-                                                <b>4 saisons</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVD.marque}}</b> 
+                                                <b>{{details.controleMecanique.pneumatique.pAVD.dimensions}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVD.profondeurRestante}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pAVD.typePneu}}</b>
                                             </div>
                                         </div>
         
@@ -432,10 +410,10 @@
                                                 Type de pneu : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
-                                                <b>Autre</b> 
-                                                <b>195/55 R16</b>
-                                                <b>5mm (50% d'usure)</b>
-                                                <b>4 saisons</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARG.marque}}</b> 
+                                                <b>{{details.controleMecanique.pneumatique.pARG.dimensions}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARG.profondeurRestante}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARG.typePneu}}</b>
                                             </div>
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
@@ -447,10 +425,10 @@
                                                 Type de pneu : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
-                                                <b>Autre</b> 
-                                                <b>195/55 R16</b>
-                                                <b>5mm (50% d'usure)</b>
-                                                <b>4 saisons</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARD.marque}}</b> 
+                                                <b>{{details.controleMecanique.pneumatique.pARD.dimensions}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARD.profondeurRestante}}</b>
+                                                <b>{{details.controleMecanique.pneumatique.pARD.typePneu}}</b>
                                             </div>
                                         </div>
                                     </div>
@@ -462,8 +440,8 @@
                                                 Arriere : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-4/5 sm:mb-2 -mx-2">
-                                                <b>Non contrôlable</b> 
-                                                <b>Non contrôlable</b>
+                                                <b>{{details.controleMecanique.freinage.plaquetteAV}}</b> 
+                                                <b>{{details.controleMecanique.freinage.plaquetteAR}}</b> 
                                             </div>
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
@@ -473,15 +451,15 @@
                                                 Arriere : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-4/5 sm:mb-2 -mx-2">
-                                                <b>Peu creusé</b> 
-                                                <b>Peu creusé</b>
+                                                <b>{{details.controleMecanique.freinage.disqueAV}}</b> 
+                                                <b>{{details.controleMecanique.freinage.disqueAR}}</b> 
                                             </div>
                                         </div>                            
                                     </div>
                                     <div *ngSwitchCase="3" class="px-3">
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Type de Distribution</b></p><br>
-                                            <p>Chaîne</p> <br>
+                                            <p>{{details.controleMecanique.distribution}}</p> <br>
                                         </div>                               
                                     </div>
                                     <div *ngSwitchCase="4" class="px-3">
@@ -495,45 +473,45 @@
                                                 État de la batterie à l'inspection : <br>
                                             </div>
                                             <div class="flex flex-col lg:w-1/2 sm:mb-2 -mx-2">
-                                                <b>Bon</b> 
-                                                <b>Bon</b> 
-                                                <b>Bon</b> 
-                                                <b>Pas de fuite</b>
-                                                <b>Bon</b> 
-                                                <b>Bon état (12.6V)</b> 
+                                                <b>{{details.controleMecanique.moteur.niveauHuile}}</b> 
+                                                <b>{{details.controleMecanique.moteur.niveauLiquideFrein}}</b> 
+                                                <b>{{details.controleMecanique.moteur.niveauLiquideRefroidissement}}</b> 
+                                                <b>{{details.controleMecanique.moteur.examenVisuelFuitesHuile}}</b> 
+                                                <b>{{details.controleMecanique.moteur.courroieDaccessoire}}</b> 
+                                                <b>{{details.controleMecanique.moteur.etatBatterieLinspection}}</b> 
                                             </div>
                                         </div>                                                 
                                     </div>
                                     <div *ngSwitchCase="5" class="px-3">
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Train avant</b></p><br>
-                                            <div class="flex flex-col lg:w-1/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Rotules  : <br>
                                                 Cardans  : <br>
                                                 Amortisseurs  : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-4/5 sm:mb-2 -mx-2">
-                                                <b>Bon état</b> 
-                                                <b>Bon</b> 
-                                                <b>Bon état</b> 
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
+                                                <b>{{details.controleMecanique.chassis.trainAvant.rotules}}</b> 
+                                                <b>{{details.controleMecanique.chassis.trainAvant.cardans}}</b> 
+                                                <b>{{details.controleMecanique.chassis.trainAvant.amortisseurs}}</b> 
                                             </div>
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Train arrière</b></p><br>
-                                            <div class="flex flex-col lg:w-1/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Rotules  : <br>
                                                 Cardans  : <br>
                                                 Amortisseurs  : <br>    
                                             </div>
-                                            <div class="flex flex-col lg:w-4/5 sm:mb-2 -mx-2">
-                                                <b>Bon état</b> 
-                                                <b>Bon</b> 
-                                                <b>Bon état</b> 
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
+                                                <b>{{details.controleMecanique.chassis.trainArriere.rotules}}</b> 
+                                                <b>{{details.controleMecanique.chassis.trainArriere.cardans}}</b> 
+                                                <b>{{details.controleMecanique.chassis.trainArriere.amortisseurs}}</b> 
                                             </div>
                                         </div>                                            
                                     </div>
                                     <div *ngSwitchCase="6" class="px-3">
-                                        <p><b>Un test de conduite a été réalisé par l'agent, aucune anomalie n'a été constatée.</b></p> <br>
+                                        <p><b>Un test de conduite a été réalisé par l'agent dont la résultat était:</b><b> {{details.controleMecanique.testConduite.resultat}}.</b></p> <br>
                                         <ul style="list-style: inside !important;">
                                             <li>Tenue de la ligne de conduite (accélération et freinage)</li>
                                             <li>Pas d'anomalie à la conduite sur les trains roulants (suspensions, amortisseurs, rotules, ...)</li>
@@ -542,7 +520,7 @@
                                             <li>Bon grip de l'embrayage / pas de patinage excessif du convertisseur de couple</li>
                                         </ul>
                                         <br>
-                                        <p><b>Vitesse maximale atteinte durant le test : 80km/h</b></p>
+                                        <p><b>Vitesse maximale atteinte durant le test :</b><b> {{details.controleMecanique.testConduite.vitesseMax}}</b></p>
                                     </div>
                                     <div *ngSwitchDefault class="px-3">
                                         none
@@ -557,26 +535,450 @@
           </div>
                 </div>
             </div>
+
+
+            <!-- section pricing-->
+            <div class="bg-white py-6 sm:py-8 lg:py-12">
+                <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+                  <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Garantie et extension</h2>
+                  <h5 class="mb-4 text-center text-2xl font-normal text-gray-800 md:mb-8 lg:text-xl xl:mb-12">MyAuto vous propose différentes garanties pour répondre à vos besoins.</h5>
+              
+                  <div class="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-2 lg:gap-8">
+                    <!-- plan - start -->
+                    <div class="flex flex-col rounded-lg border p-4 pt-6">
+                      <div class="mb-12">
+                        <div class="mb-2 text-center text-2xl font-bold text-gray-800">ESSENTIEL  </div>
+              
+                        <p class="mx-auto mb-8 px-8 text-center text-gray-500">For individuals and organizations who want to try our system</p>
+              
+                        <div class="space-y-2">
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Moteur</span>
+                          </div>
+                          <!-- check - end -->
+              
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Pont</span>
+                          </div>
+                          <!-- check - end -->
+              
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Boîte de vitesse</span>
+                          </div>
+                          <!-- check - end -->
+              
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Carter</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Ingrédients</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Diagnostic</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Circuit électrique</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Freinage</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Alimentation</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Boîte automatique</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Boîte automatique</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Direction</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+              
+                            <span class="text-gray-800 font-semibold">Suspensions</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2 p1-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <span class="text-gray-400 font-semibold">Climatisation</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            
+              
+                            <span class="text-gray-400 font-semibold">Transmissions</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+             
+                            <span class="text-gray-400 font-semibold">Embrayage</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <span class="text-gray-400 font-semibold">Sécurité</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              
+                            <span class="text-gray-400 font-semibold">Circuit électronique</span>
+                          </div>
+                          <!-- check - end -->
+                          <!-- check - start -->
+                          <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            <span class="text-gray-400 font-semibold">Organes de confort</span>
+                          </div>
+                          <!-- check - end -->
+                        </div>
+                      </div>
+              
+                      <div class="mt-auto flex flex-col gap-8">
+                        <div class="flex items-end justify-center gap-1">
+                          <!-- <span class="self-start text-gray-600">$</span>
+                          <span class="text-4xl font-bold text-gray-800">0</span>
+                          <span class="text-gray-500">per user/month</span> -->
+                          <span class="text-gray-500">Prix sera announce prochainement</span>
+
+                        </div>
+              
+                        <!-- <a href="#" class="block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Join for free</a> -->
+                      </div>
+                    </div>
+                    <!-- plan - end -->
+              
+                    <!-- plan - start -->
+                    <div class="flex flex-col rounded-lg border p-4 pt-6">
+                        <div class="mb-12">
+                          <div class="mb-2 text-center text-2xl font-bold text-gray-800">CONFORT </div>
+                
+                          <p class="mx-auto mb-8 px-8 text-center text-gray-500">For individuals and organizations who want to try our system</p>
+                
+                          <div class="space-y-2">
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Moteur</span>
+                            </div>
+                            <!-- check - end -->
+                
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Pont</span>
+                            </div>
+                            <!-- check - end -->
+                
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Boîte de vitesse</span>
+                            </div>
+                            <!-- check - end -->
+                
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Carter</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Ingrédients</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Diagnostic</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Circuit électrique</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Freinage</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Alimentation</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Boîte automatique</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Boîte automatique</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Direction</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                
+                              <span class="text-gray-800 font-semibold">Suspensions</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>                
+                              <span class="text-gray-800 font-semibold">Climatisation</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>                              
+                
+                              <span class="text-gray-800 font-semibold">Transmissions</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>               
+                              <span class="text-gray-800 font-semibold">Embrayage</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>                              <span class="text-gray-800 font-semibold">Sécurité</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>                
+                              <span class="text-gray-800 font-semibold">Circuit électronique</span>
+                            </div>
+                            <!-- check - end -->
+                            <!-- check - start -->
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                  </svg>                              <span class="text-gray-800 font-semibold">Organes de confort</span>
+                            </div>
+                            <!-- check - end -->
+                          </div>
+                        </div>
+                
+                        <div class="mt-auto flex flex-col gap-8">
+                          <div class="flex items-end justify-center gap-1">
+                            <!-- <span class="self-start text-gray-600">$</span>
+                            <span class="text-4xl font-bold text-gray-800">49</span>
+                            <span class="text-gray-500">per user/month</span> -->
+                            <span class="text-gray-500">Prix sera announce prochainement</span>
+                          </div>
+                
+                          <!-- <a href="#" class="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">Contact Sales</a> -->
+                        </div>
+                      </div>
+                    <!-- plan - end -->
+                  </div>
+              
+                  <div class="text-center text-sm text-gray-500 sm:text-base">Besoin d'aide pour decider? <a href="/faq" class="text-gray-500 underline transition duration-100 hover:text-indigo-500 active:text-indigo-600">Consulter nos FAQ</a>.</div>
+                </div>
+            </div>
+
+            <!-- section contactez-nous -->
+            <div class="row d-flex justify-content-center">
+                <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 44rem;">
+                  <div class="card-body">
+                    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">N’hésitez pas à nous contacter !</h2>
+                    <div class="py-6 sm:py-8 lg:py-12">
+                        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                            <!-- form - start -->
+                            <form class="mx-auto max-w-screen-md sm:grid-cols-2">
+                                                        
+                                <div class="sm:col-span-2">
+                                  <label for="email" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">Email*</label>
+                                  <input name="email" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
+                                </div>
+                            
+                                <div class="sm:col-span-2">
+                                  <label for="subject" class="mb-2 inline-block text-sm text-gray-800 sm:text-base mt-4">Téléphone portable*</label>
+                                  <input name="subject" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
+                                </div>
+                            
+                                <div class="sm:col-span-2">
+                                  <label for="message" class="mb-2 inline-block text-sm text-gray-800 sm:text-base mt-4">Message*</label>
+                                  <textarea name="message" class="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"></textarea>
+                                </div>
+                            
+                                <div class="flex items-center justify-between sm:col-span-2">
+                                  <button class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Envoyer</button>
+                                </div>
+                            </form>
+                            <!-- form - end -->
+                      
+                          
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
         </div>
+        <!--end first column-->
 
         <!--sticky card's column-->
         <div class="flex flex-col lg:w-1/3 justify-content-start relative">
             <!--section details card-->
             <div class="row d-flex justify-content-center fixed  right-20" style="top:12rem !important; right: 9rem !important">
                 <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 23rem; height: 30rem;">
-                  <div class="card-body">
-                    <h5 class="card-title fs-1 text-blue-700">Informations clés</h5>
+                  <div class="card-body banner-title">
                     <div class="div row flex items-start h-full">
-                      <div class="div col-6 flex flex-col">
-                        <p class="fs-3 py-1">Version : <b>207 CC</b></p>
-                        <p class="fs-3 py-1">Date mise en circulation : <b>01/10/2009</b></p>
-                        <p class="fs-3 py-1">Carburant : <b>Essence</b></p>
+                      <div class="div col-12 flex flex-col">
+                        <p class="fs-2 py-1"><b>{{details.car.marque}}</b></p>
+                        <p class="fs-3 py-1"><b>{{details.car.modele}}</b></p>
+                        <p class="fs-5 py-1">{{details.car.dateMiseCirculation | date:'yyyy'}} | {{details.car.kilometrage}} km | {{details.car.carburant}}</p>
+                        <p class="fs-1 py-1">{{details.car.prix}} TND</p>
+                        <a href="#" class="inline-block flex-1 rounded-lg bg-indigo-500 mt-28 px-8 py-3 text-center  font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700">Reserver</a>
                       </div>
-                      <div class="div col-6 flex flex-col">
-                        <p class="fs-3 py-1">Boite de vitesse : <b>Manuelle</b></p>
-                        <p class="fs-3 py-1">kilometrage : <b>Manuelle</b></p>
-                      </div>
-
                     </div>
                   </div>
                 </div>
@@ -586,4 +988,5 @@
 </div>
   
 
-  
+<!-- <div class="fullpage" #fullPage (click)="closeZoom()"></div> -->
+

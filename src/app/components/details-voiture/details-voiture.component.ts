@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
 import { Router } from '@angular/router';
 
@@ -8,20 +8,71 @@ import { Router } from '@angular/router';
   styleUrls: ['./details-voiture.component.scss']
 })
 export class DetailsVoitureComponent implements OnInit {
+  isFullscreen: boolean;
 
-  constructor(private _voitureService: ServiceVoitureService, private router: Router) { }
+  constructor(private _voitureService: ServiceVoitureService, private router: Router, private renderer: Renderer2) { }
   selectedControl: number = 1;
+  details: any = null;
+  imgList: string[] = [
+                        '../../../assets/Ford-Mondeo-1.png',
+                        '../../../assets/Ford-Mondeo-2.png',
+                        '../../../assets/Ford-Mondeo-3.png',
+                        '../../../assets/Ford-Mondeo-4.png',
+                      ]
+  
+  selectedMainImage : string = this.imgList[0];
+
+  //mainImage: HTMLImageElement = document.querySelector('main-image');
+  //fullPage : HTMLElement = document.querySelector('#fullPage');
+  @ViewChild('mainImg') mainImg : ElementRef ;
+  @ViewChild('fullPage') fullPage: ElementRef;
+  
   ngOnInit(): void {
 
     let carId = this.router.url.split('?')[1].split('=')[1];
-    console.log(carId)
     this._voitureService.getCarDetailsById(carId).subscribe((res) => {
-      console.log(res);
+      this.details = res;
+      this.selectedMainImage  = this.imgList[0];
     }, (err)=>{console.error(err)})
 
+
+    // this.mainImage.addEventListener('click', function() {
+    //   fullPage.style.backgroundIamge = 'url(' + this.mainImage.src + ')';
+    //   this.fullPage.style.display = 'block';
+    // });
+
+  }
+
+  zoom(){
+    debugger
+    //const bla = this.fullPage.nativeElement as HTMLElement;
+    //bla.style.display = 'block';
+    //bla.style.backgroundImage = 'url(' + this.mainImg.nativeElement.src + ')';
+    this.renderer.setStyle(this.fullPage, 'background-image', 'url'+this.mainImg.nativeElement.src+')');
+    this.renderer.setStyle(this.fullPage, 'display', 'block');
+
+  }
+
+    toggleFullscreen() {
+      this.isFullscreen = !this.isFullscreen;
+
+      if (this.isFullscreen) {
+        const fullscreenContainer = document.querySelector('.fullscreen-container');
+        fullscreenContainer?.requestFullscreen(); // Enter fullscreen mode
+      } else {
+        document.exitFullscreen(); // Exit fullscreen mode
+      }
+  }
+
+  closeZoom(){
+    this.fullPage.nativeElement.style.display = 'none';
   }
 
   updateSelectedControl(value: number){
     this.selectedControl = value;
+  }
+
+  switchImage(num: number) {
+    this.selectedMainImage = this.imgList[num]
   }
 }
