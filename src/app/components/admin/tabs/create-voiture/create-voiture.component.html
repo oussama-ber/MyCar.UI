@@ -1,62 +1,621 @@
 <section class="text-gray-600 body-font ">
   <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+    <!-- <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
       <h1 class="title-font font-medium text-3xl text-gray-900">Vendez votre voiture au meilleur prix 💰</h1>
       <p class="leading-relaxed mt-4">Une estimation de votre voiture en 2 minutes, top chrono !</p>
       <img class="object-cover object-center rounded" alt="hero" src="../../../assets/banner.png">
-    </div>
-    <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 sell-card-style">
-      <!-- <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2> -->
-      <form [formGroup]="createVoitureForm">
+    </div> -->
+    <!-- <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 sell-card-style"> -->
+    <div class=" bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 sell-card-style">
+      <div *ngIf="formStep == 1">
+        <form [formGroup]="createVoitureFormGeneral" >
+          <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center Heading-style">General information</h2>
+          <div class="row">
+            <div class="relative mb-4 col-6">
+              <label for="marque" class="leading-7 text-sm text-gray-600 field-text">Marque</label>
+              <input type="text" formControlName="marque" id="marque" name="marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota" >
+            </div>
+            <div class="relative mb-4 col-6">
+              <label for="version" class="leading-7 text-sm text-gray-600 field-text">Modele</label>
+              <input type="text" formControlName="modele" id="version" name="version" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota V1">
+            </div>
+          </div>
+          <div class="row">
+            <div class="relative mb-4 col-6">
+              <label for="carburant" class="leading-7 text-sm text-gray-600 field-text">Carburant </label>
+              <input type="text" formControlName="carburant" id="carburant" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+            </div>
+            <div class="relative mb-4 col-6">
+              <label for="boiteVitesse" class="leading-7 text-sm text-gray-600 field-text">Boite vittesse </label>
+              <input type="text" formControlName="boiteVitesse" id="boiteVitesse" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+            </div>
+          </div>
+          <div class="row">
+            <div class="relative mb-4 col-6">
+              <label for="kilometrage" class="leading-7 text-sm text-gray-600 field-text">Kilometrage </label>
+              <input type="number" formControlName="kilometrage"  id="kilometrage" name="kilometrage" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+            </div>
+            <div class="relative mb-4 col-6">
+              <label for="dateMiseCirculation" class="leading-7 text-sm text-gray-600 field-text">Date Mise Circulation </label>
+              <input type="text" formControlName="dateMiseCirculation" id="dateMiseCirculation" name="dateMiseCirculation" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+            </div>
+          </div>
+          <div class='row' >
+            <div class="relative mb-4">
+              <label for="prix" class="leading-7 text-sm text-gray-600 field-text">Prix </label>
+              <input type="text" formControlName="prix" id="prix" name="prix" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="1,234,5678 TND">
+            </div>
+          </div>
+  <!--
+          <div class="text-center">
+            <button mat-stroked-button type="button" (click)="filePicker.click()">ADD EVENT POSTER</button>
+            <input type="file" #filePicker (change)="onFileSelected($event)" >
+            <img [src]="'data:image/png;base64,' + base64Output" alt="Red dot" />
+            <button (click)="downloadFile()">Download File</button>
+            <a
+            [href]="base64Output"
+            [download]="'image.png'"
+            *ngIf="isValidString()"
+            >
+            Download
+            </a>
+          </div> -->
+        </form>
+      </div>
+      <form [formGroup]="createVoitureFormOptions" *ngIf="formStep == 2" >
+        <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center">Principaux équipements & Options</h2>
         <div class="relative mb-4">
-          <label for="marque" class="leading-7 text-sm text-gray-600 field-text">Marque</label>
-          <input type="text" formControlName="marque" id="marque" name="marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota" >
+          <label for="option" class="leading-7 text-sm text-gray-600 field-text">Option</label>
+          <input type="text" formControlName="option" id="option" name="option" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. Option 1">
         </div>
-        <div class="relative mb-4">
-          <label for="version" class="leading-7 text-sm text-gray-600 field-text">Version</label>
-          <input type="text" formControlName="modele" id="version" name="version" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Toyota V1">
-        </div>
-        <div class="relative mb-4">
-          <label for="carburant" class="leading-7 text-sm text-gray-600 field-text">Carburant </label>
-          <input type="text" formControlName="carburant" id="carburant" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
-        </div>
-        <div class="relative mb-4">
-          <label for="boiteVitesse" class="leading-7 text-sm text-gray-600 field-text">Boite vittesse </label>
-          <input type="text" formControlName="boiteVitesse" id="boiteVitesse" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
-        </div>
-        <div class="relative mb-4">
-          <label for="kilometrage" class="leading-7 text-sm text-gray-600 field-text">Kilometrage </label>
-          <input type="number" formControlName="kilometrage"  id="kilometrage" name="kilometrage" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
-        </div>
-        <div class="relative mb-4">
-          <label for="dateMiseCirculation" class="leading-7 text-sm text-gray-600 field-text">Date Mise Circulation </label>
-          <input type="text" formControlName="dateMiseCirculation" id="dateMiseCirculation" name="dateMiseCirculation" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
-        </div>
-        <div class="relative mb-4">
-          <label for="phone" class="leading-7 text-sm text-gray-600 field-text">Phone </label>
-          <input type="number" formControlName="telephone" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="(+216) 12 345 678">
-        </div>
-        <div class="relative mb-4">
-          <label for="email" class="leading-7 text-sm text-gray-600 field-text">Email </label>
-          <input type="text" formControlName="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="jhon.deo@gmail.com">
+
+        <div class="text-center">
+          <button class="next-button-style px-3 previous-button-style" (click)="onAddOption()" [disabled]="createVoitureFormOptions.get('option').invalid">
+            Add
+          </button>
+          <div class="container px-5 py-4  flex flex-wrap lg:w-4/5 ">
+            <div class="p-2 sm:w-1/4 w-full" *ngFor="let option of inputAllOptions; let eId = index ">
+                <div class="bg-white rounded flex p-4 h-full items-center">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium"> {{option}} </span>
+                </div>
+            </div>
+          </div>
         </div>
       </form>
-      <div class="text-center">
-        <button mat-stroked-button type="button" (click)="filePicker.click()">ADD EVENT POSTER</button>
-        <input type="file" #filePicker (change)="onFileSelected($event)" >
-        <!-- <input type="text" [(ngModel)]="imagePreview"> -->
-        <img [src]="'data:image/png;base64,' + base64Output" alt="Red dot" />
-        <button (click)="downloadFile()">Download File</button>
-        <a
-        [href]="base64Output"
-        [download]="'image.png'"
-        *ngIf="isValidString()"
-        >
-        Download
-        </a>
+      <form [formGroup]="etatExterieurForm" *ngIf="formStep == 3" >
+        <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center">Etat Exterieur</h2>
+        <div class="relative mb-4">
+          <label for="title" class="leading-7 text-sm text-gray-600 field-text">Etat</label>
+          <input type="text" formControlName="title" id="title" name="title" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. Defaut 1">
+        </div>
+
+        <div class="text-center">
+          <button class="next-button-style px-3 previous-button-style" (click)="onAddEtatExterieur()" [disabled]="etatExterieurForm.get('title').invalid">
+            Add
+          </button>
+          <div class="container px-5 py-4  flex flex-wrap lg:w-4/5 ">
+            <div class="p-2 sm:w-1/4 w-full" *ngFor="let etat of inputAllEtatExterieur; let eId = index ">
+                <div class="bg-white rounded flex p-4 h-full items-center">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium"> {{etat}} </span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="etatInterieurForm" *ngIf="formStep == 4" >
+        <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center">Etat Interieur</h2>
+        <div class="relative mb-4">
+          <label for="title" class="leading-7 text-sm text-gray-600 field-text">Etat</label>
+          <input type="text" formControlName="title" id="title" name="title" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. Defaut 1">
+        </div>
+
+        <div class="text-center">
+          <button class="next-button-style px-3 previous-button-style" (click)="onAddEtatInterieur()" [disabled]="etatInterieurForm.get('title').invalid">
+            Add
+          </button>
+          <div class="container px-5 py-4  flex flex-wrap lg:w-4/5 ">
+            <div class="p-2 sm:w-1/4 w-full" *ngFor="let etat of inputAllEtatInterieur; let eId = index ">
+                <div class="bg-white rounded flex p-4 h-full items-center">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium"> {{etat}} </span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="createVoitureFormEntretien" *ngIf="formStep == 5" >
+        <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center">Historique d’entretien</h2>
+        <div class="relative mb-4">
+          <label for="kilometrage" class="leading-7 text-sm text-gray-600 field-text">Kilometrage</label>
+          <input type="text" formControlName="kilometrage" id="kilometrage" name="kilometrage" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Exp. 100000 KM">
+        </div>
+        <div class="relative mb-4">
+          <label for="description" class="leading-7 text-sm text-gray-600 field-text">Description </label>
+          <input type="text" formControlName="description" id="description" name="description" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="First check">
+        </div>
+        <div class="relative mb-4">
+          <label for="date" class="leading-7 text-sm text-gray-600 field-text">Date </label>
+          <input type="date" formControlName="date" id="date" name="carburant" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="dd-mm-yyyy">
+        </div>
+        <div class="text-center">
+          <button class="next-button-style px-3 previous-button-style" (click)="onAddEntretien()">
+            Add
+          </button>
+          <ul class="flex">
+            <li *ngFor="let entretien of inputAllEntretien; let eId = index ">
+
+              <div class="p-2 w-full">
+                <div class="bg-white rounded flex p-4 h-full items-center">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">entretient {{eId +1}} {{entretien.description}} | {{entretien.description}} | {{entretien.date | date:'dd-MM-yyyy'}}</span>
+                </div>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </form>
+       <!-- section controle mecanique-->
+       <div class="row d-flex justify-content-center" *ngIf="formStep == 6">
+        <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 41rem; background: #0d374e;">
+        <div class="card-body">
+        <!-- <h5 class="card-title fs-1 text-blue-700">Contrôle mécanique</h5> -->
+        <h2 class="text-gray-900 text-lg font-medium h-1-style mb-5 flex justify-center">Contrôle mécanique</h2>
+        <div class="container  py-4 mx-auto">
+            <div class="row d-flex justify-content-center">
+                <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2">
+              <div class="p-2 w-full  " (click)="updateSelectedControl(1)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Pneumatiques</span>
+                </div>
+              </div>
+              <div class="p-2 w-full    " (click)="updateSelectedControl(2)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Freinage</span>
+                </div>
+              </div>
+              <div class="p-2 w-full " (click)="updateSelectedControl(3)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Distribution</span>
+                </div>
+              </div>
+              <div class="p-2 w-full " (click)="updateSelectedControl(4)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Moteur</span>
+                </div>
+              </div>
+              <div class="p-2 w-full " (click)="updateSelectedControl(5)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Chassis</span>
+                </div>
+              </div>
+              <div class="p-2 w-full " (click)="updateSelectedControl(6)">
+                <div class="bg-white rounded flex p-4 h-full items-center shadow-sm">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                    <path d="M22 4L12 14.01l-3-3"></path>
+                  </svg>
+                  <span class="title-font font-medium">Test de Conduite</span>
+                </div>
+              </div>
+                </div>
+                <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2 py-2 px-5 right-form-body">
+                    <div class="card ng-white border-0 w-full h-full ">
+                    <div class="card ng-white border-0 w-full h-full shadow-sm card-style">
+                        <div class="card-body" [ngSwitch]="selectedControl">
+                            <div *ngSwitchCase="1" class="px-3">
+                              <form [formGroup]="controlMecanicqueFormPneumatiques">
+                                <div class="row d-flex justify-content-center" >
+                                  <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Avant Gauche</b></p><br>
+                                  <div class="row">
+                                    <div class="col-3 item-style">
+                                      <span>  Marque :</span>
+                                    </div>
+                                    <div class="col-9">
+                                      <input type="text" formControlName="aVGmarque" id="aVGmarque" name="aVGmarque" placeholder="Marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-3 item-style">
+                                      <span>  Dimensions :</span>
+                                    </div>
+                                    <div class="col-9">
+                                      <input type="text"  formControlName="aVGdimensions" id="aVGdimensions" name="aVGdimensions" placeholder="Dimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-3 item-style">
+                                      <span>  Profondeur Restante :</span>
+                                    </div>
+                                    <div class="col-9">
+                                      <input type="text"  formControlName="aVGprofondeurRestante" id="aVGprofondeurRestante" name="aVGprofondeurRestante" placeholder="Profondeur Restante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-3 item-style">
+                                      <span>  Type de pneu :</span>
+                                    </div>
+                                    <div class="col-9">
+                                      <input type="text" formControlName="aVGtypePneu" id="aVGtypePneu" name="aVGtypePneu" placeholder="Type de pneu " class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                  </div>
+
+                                  <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Avant Droit</b></p><br>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Marque :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVDmarque"  id="aVGmarque" name="aVGmarque" placeholder="Marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Dimensions :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVDdimensions" id="aVGdimensions" name="aVGdimensions" placeholder="Dimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Profondeur Restante :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVDprofondeurRestante" id="aVDprofondeurRestante" name="aVDprofondeurRestante" placeholder="Profondeur Restante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Type de pneu :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVDtypePneu" id="aVGtypePneu" name="aVGtypePneu" placeholder="Type de pneu" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <!-- <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                      Marque : <br>
+                                      Dimensions : <br>
+                                      Profondeur Restante : <br>
+                                      Type de pneu : <br>
+                                    </div>
+                                    <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                      <input type="text" formControlName="aVDmarque" id="aVDmarque" name="aVDmarque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Autre">
+                                      <input type="text" formControlName="aVDdimensions" id="aVDdimensions" name="aVDdimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="195/55 R16">
+                                      <input type="text" formControlName="aVDprofondeurRestante" id="aVDprofondeurRestante" name="aVDprofondeurRestante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="5mm (50% d'usure)">
+                                      <input type="text" formControlName="aVDtypePneu" id="aVDtypePneu" name="aVDtypePneu" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="4 saisons">
+
+                                      </div> -->
+                                  </div>
+                                  <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Arrière Gauche</b></p><br>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Marque :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRGmarque"  id="aRGmarque" name="aRGmarque" placeholder="Marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Dimensions :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRGdimensions" id="aRGdimensions" name="aRGdimensions" placeholder="Dimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Profondeur Restante :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRGprofondeurRestante" id="aRGprofondeurRestante" name="aRGprofondeurRestante" placeholder="Profondeur Restante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Type de pneu :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRGtypePneu" id="aRGtypePneu" name="aRGtypePneu" placeholder="Type de pneu" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <!-- <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                      Marque : <br>
+                                      Dimensions : <br>
+                                      Profondeur Restante : <br>
+                                      Type de pneu : <br>
+                                    </div>
+                                    <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                      <input type="text" formControlName="aRGmarque" id="aRGmarque" name="aRGmarque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Autre">
+                                      <input type="text" formControlName="aRGdimensions" id="aRGdimensions" name="aRGdimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="195/55 R16">
+                                      <input type="text" formControlName="aRGprofondeurRestante" id="aRGprofondeurRestante" name="aRGprofondeurRestante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="5mm (50% d'usure)">
+                                      <input type="text" formControlName="aRGtypePneu" id="aRGtypePneu" name="aRGtypePneu" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="4 saisons">
+                                      </div> -->
+                                  </div>
+                                  <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Arrière Droit</b></p><br>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Marque :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRDmarque"  id="aRDmarque" name="aRDmarque" placeholder="Marque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Dimensions :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRDdimensions" id="aRDdimensions" name="aRDdimensions" placeholder="Dimensions" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Profondeur Restante :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRDprofondeurRestante" id="aRDprofondeurRestante" name="aRDprofondeurRestante" placeholder="Profondeur Restante" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style">
+                                        <span>  Type de pneu :</span>
+                                      </div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRDtypePneu" id="aRDtypePneu" name="aRDtypePneu" placeholder="Type de pneu" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <div *ngSwitchCase="2" class="px-3">
+                                <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Plaquettes</b></p><br>
+
+                                    <div class="row">
+                                      <div class="col-3 item-style"><span>  Avant :</span></div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVplaque"  id="aVplaque" name="aVplaque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Avant">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style"><span> Arriere : </span></div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRplaque" id="aRplaque" name="aRplaque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Arriere">
+                                      </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Disques</b></p><br>
+                                    <div class="row">
+                                      <div class="col-3 item-style"><span>  Avant :</span></div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aVdisque" id="aVdisque" name="aVdisque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Avant">
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-3 item-style"><span> Arriere : </span></div>
+                                      <div class="col-9">
+                                        <input type="text" formControlName="aRdisque" id="aRdisque" name="aRdisque" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Arriere">
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="3" class="px-3">
+                                <div class="row d-flex justify-content-center" >
+                                  <div class="col-12">
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Type de Distribution</b></p><br>
+                                    <input type="text" formControlName="distributionType" id="distributionType" name="distributionType" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Type de Distribution">
+                                  </div>
+
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="4" class="px-3">
+                                <div class="row d-flex justify-content-center" >
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>   Niveau huile : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="moteurNiveauHuile" id="moteurNiveauHuile" name="moteurNiveauHuile" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Niveau huile ">
+                                    </div>
+                                  </div>
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>   Niveau liquide de frein : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="moteurNiveauLiquideFrein" id="moteurNiveauLiquideFrein" name="moteurNiveauLiquideFrein" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Niveau liquide de frein">
+                                    </div>
+                                  </div>
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>  Niveau liquide de refroidissement : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="moteurNiveauRefroidissement" id="moteurNiveauRefroidissement" name="moteurNiveauRefroidissement" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Niveau liquide de refroidissement">
+                                    </div>
+                                  </div>
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>  Examen visuel fuites d'huile : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="examenVisuelFruitesHuile" id="examenVisuelFruitesHuile" name="examenVisuelFruitesHuile" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Examen visuel fuites d'huile">
+                                    </div>
+                                  </div>
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>  Courroie d'accessoire : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="courroieAccessoire" id="courroieAccessoire" name="courroieAccessoire" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Courroie d'accessoire">
+                                    </div>
+                                  </div>
+                                  <div class="row mt-3">
+                                    <div class="col-4 item-style"><span>  État de la batterie à l'inspection : </span></div>
+                                    <div class="col-8">
+                                      <input type="text" formControlName="etatBatterie" id="etatBatterie" name="etatBatterie" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="État de la batterie à l'inspection">
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="5" class="px-3">
+                                <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Train avant</b></p><br>
+
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Rotules : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainAvRotules" id="trainAvRotules" name="trainAvRotules" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Rotules">
+                                      </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Cardans : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainAVCardans" id="trainAVCardans" name="trainAVCardans" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Cardans">
+                                      </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Amortisseurs : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainAVAmortisseurs" id="trainAVAmortisseurs" name="trainAVAmortisseurs" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Amortisseurs">
+                                      </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row d-flex justify-content-center" >
+                                    <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Train arrière</b></p><br>
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Rotules : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainARRotules"  id="trainARRotules" name="trainARRotules" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Rotules">
+                                      </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Cardans : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainARCardans" id="trainARCardans" name="trainARCardans" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Cardans">
+                                      </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                      <div class="col-4 item-style"><span>  Amortisseurs : </span></div>
+                                      <div class="col-8">
+                                        <input type="text" formControlName="trainARAmortisseurs" id="trainARAmortisseurs" name="trainARAmortisseurs" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Amortisseurs">
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="6" class="px-3">
+                              <div class="row mt-3">
+                                <div class="col-7 item-style"><span> Un test de conduite a été réalisé par l'agent, </span></div>
+                                <div class="col-5">
+                                  <input type="text"  formControlName="resultatFinal" id="resultatFinal" name="resultatFinal" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Résultats Finale">
+                                </div>
+                              </div>
+                                <ul style="list-style: inside !important;">
+                                    <li>Tenue de la ligne de conduite (accélération et freinage)</li>
+                                    <li>Pas d'anomalie à la conduite sur les trains roulants (suspensions, amortisseurs, rotules, ...)</li>
+                                    <li>Fonctionnement normal de la direction (pas de jeu ni de vibration)</li>
+                                    <li>Pas de vibrations moteur anormales</li>
+                                    <li>Bon grip de l'embrayage / pas de patinage excessif du convertisseur de couple</li>
+                                </ul>
+                                <br>
+                                <div class="row mt-3">
+                                  <div class="col-7 item-style"><span>  Vitesse maximale atteinte durant le test  : </span></div>
+                                  <div class="col-5">
+                                    <input type="text"  formControlName="vitesseMax" id="vitesseMax" name="vitesseMax" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700  px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Vitesse Maximale">
+                                  </div>
+                                </div>
+
+                            </div>
+                            <div *ngSwitchDefault class="px-3">
+                                none
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- <button class="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button> -->
+          </div>
       </div>
-        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg button-style" (click)="submitVoiture()" >Estimez votre voiture gratuitement</button>
-        <a class="inline-flex items-center mt-3 form-helper-style" href="/commentcamarche" >Comment ca marche?</a>
+    </div>
+  </div>
+        </div>
+    </div>
+
+<div class="row">
+  <div class="col-2 ps-0">
+
+  <button class="previous-button-style px-3" [ngClass]="formStep == 1? 'disabled-button' :''" (click)="onPreviousHandler()" [disabled]="formStep == 1">
+    Previous
+  </button>
+  </div>
+  <div class="col-4">
+    <div *ngIf="formStep == 6">
+      <P class="files-title">Files Uploaded:</P>
+      <div *ngIf="uploadedFileNames.length == 0">
+        <p>No file updated</p>
+      </div>
+      <ul class="grid-list" *ngIf="uploadedFileNames.length > 0" >
+        <li *ngFor="let fileName of uploadedFileNames">{{fileName}}</li>
+      </ul>
+
+
+    </div>
+
+</div>
+  <div class="col-4 upload-wrapper">
+    <div class="text-center" *ngIf="formStep == 6">
+      <button mat-stroked-button type="button" (click)="filePicker.click() " class="previous-button-style">
+        <input type="file" #filePicker (change)="onImagePicked($event)"  hidden> Upload <i class="fa-solid fa-cloud-arrow-up "></i>
+      </button>
+
+    </div>
+  </div>
+  <div class="col-2 pe-0">
+    <button class="previous-button-style float-end " [ngClass]="formStep == 6? 'disabled-button' :''"  (click)="onNextHandler()" [disabled]="formStep == 6" >
+      Next
+    </button>
+  </div>
+
+
+</div>
+
+
+        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg button-style"  [ngClass]="formStep != 6? 'disabled-button' :''" (click)="submitVoiture()" [disabled]="formStep != 6" >Ajouter voiture</button>
       </div>
   </div>
 </section>

@@ -54,6 +54,13 @@ export class ServiceVoitureService {
     }
     return this.http.post<any>(`${this.baseUrl}/request/saveImage`, data);
   }
+  testImage(requestToUpdate: string, carId: string){
+    const data = {
+      imageUrl: requestToUpdate,
+      carId: carId
+    }
+    return this.http.post<any>(`${this.baseUrl}/request/testImage`, data);
+  }
   createRequest(requestToCreate: RequestModel){
     const data = {
       marque: requestToCreate.marque,
@@ -65,6 +72,9 @@ export class ServiceVoitureService {
       email: requestToCreate.email,
       telephone: requestToCreate.telephone
     }
+    return this.http.post<any>(`${this.baseUrl}/request/saveRequest`, data);
+  }
+  createOffreVoiture(data: Object){
     return this.http.post<any>(`${this.baseUrl}/request/saveRequest`, data);
   }
   //#endregion Request calls

@@ -7,3 +7,12 @@
 .logo-color{
   color : #729A44 ;
 }
+.footer-style{
+  position: relative;
+  bottom: 0;
+  width: 100vw;
+  height: 17rem;
+}
+.footer-wrapper{
+  height: 17rem;
+}

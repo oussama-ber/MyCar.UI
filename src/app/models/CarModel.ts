@@ -1,18 +1,50 @@
-export interface CarModel{
-  _id: number,
-  marque: string,
-  modele: string,
-  dateMiseCirculation: Date,
-  carburant: string,
-  boiteVitesse: string,
-  kilometrage: string,
-  options: string[],
-  entretienHistory: string,
-  etatExterieur: object[],
-  etatInterieur: object[],
-  tag: string,
-  createdDate: Date,
-  prix: number,
+export class CarModel{
+
+  _id: number = 0;
+  marque: string= "";
+  modele: string= "";
+  dateMiseCirculation: Date= new Date();
+  carburant: string= "";
+  boiteVitesse: string= "";
+  kilometrage: string= "";
+  options: string[]= []
+  entretienHistory: string= "";
+  etatExterieur: object[] = []
+  etatInterieur: object[] = []
+  tag: string= "";
+  createdDate: Date= new Date();
+  prix: number= 0;
+  constructor(
+     _id: number,
+     marque: string,
+     modele: string,
+     dateMiseCirculation: Date,
+     carburant: string,
+     boiteVitesse: string,
+     kilometrage: string,
+     options: string[],
+     entretienHistory: string,
+     etatExterieur: object[],
+     etatInterieur: object[],
+     tag: string,
+     createdDate: Date,
+     prix: number
+  ) {
+    this._id = _id ;
+    this.marque = marque ;
+    this.modele = modele ;
+    this.dateMiseCirculation = dateMiseCirculation ;
+    this.carburant = carburant ;
+    this.boiteVitesse = boiteVitesse ;
+    this.kilometrage = kilometrage ;
+    this.options = options || [];
+    this.entretienHistory = entretienHistory ;
+    this.etatExterieur = etatExterieur || [];
+    this.etatInterieur = etatInterieur || [];
+    this.tag = tag;
+    this.createdDate = createdDate;
+    this.prix = prix;
+  }
 }
 export class RequestModel{
   _id: number = 0
@@ -38,4 +70,10 @@ export class FilterCarModel{
   dateMax: number = 0;
   carburant: string [] = [];
   boiteVitesse: string [] = [];
+}
+export class Entretien{
+  voitureId: number = 0;
+  date: Date= new Date();
+  kilometrage: string = "";
+  description: string = "";
 }
