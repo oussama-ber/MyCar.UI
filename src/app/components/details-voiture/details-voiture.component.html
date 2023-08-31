@@ -1,5 +1,5 @@
-<div class="fullscreen-container " *ngIf="isFullscreen" (click)="toggleFullscreen()">
-    <img src="../../../assets/peugeot207cc.jpg" class="" loading="lazy" alt="Photo by Himanshu Dewangan" class="object-cover object-center" />
+<div class="fullscreen-container" *ngIf="isFullscreen" (click)="toggleFullscreen()">
+    <img [src]=selectedMainImage class="" loading="lazy" alt="Photo by Himanshu Dewangan" class="object-cover object-center" />
 </div>
 <div class="bg-white py-6 sm:py-8 lg:py-12" *ngIf="!isFullscreen">
     <div class="row flex flex-row justify-content-space-around">
@@ -122,68 +122,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <h5 class="card-title fs-1 text-blue-700">Principaux équipements & Options</h5>
-        
-                    <div class="container px-5 py-4 mx-auto">
-                        
-                      <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">Climatisation</span>
-                          </div>
-                        </div>
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">Phares automatiques</span>
-                          </div>
-                        </div>
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">Essuie-glaces automatiques</span>
-                          </div>
-                        </div>
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">Peinture métallisée</span>
-                          </div>
-                        </div>
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">Rétroviseurs à réglages électriques</span>
-                          </div>
-                        </div>
-                        <div class="p-2 sm:w-1/2 w-full">
-                          <div class="bg-white rounded flex p-4 h-full items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                              <path d="M22 4L12 14.01l-3-3"></path>
-                            </svg>
-                            <span class="title-font font-medium">option 6</span>
-                          </div>
-                        </div>
-                      </div> -->
-                      <!-- <button class="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button> -->
-                    <!--</div> -->
               </div>
             </div>
               </div>
@@ -372,13 +310,13 @@
                                     <div *ngSwitchCase="1" class="px-3">
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Avant Gauche</b></p><br>
-                                            <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Marque : <br>
                                                 Dimensions : <br>
                                                 Profondeur Restante : <br>
                                                 Type de pneu : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
                                                 <b>{{details.controleMecanique.pneumatique.pAVG.marque}}</b> 
                                                 <b>{{details.controleMecanique.pneumatique.pAVG.dimensions}}</b>
                                                 <b>{{details.controleMecanique.pneumatique.pAVG.profondeurRestante}}</b>
@@ -387,13 +325,13 @@
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Avant Droit</b></p><br>
-                                            <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Marque : <br>
                                                 Dimensions : <br>
                                                 Profondeur Restante : <br>
                                                 Type de pneu : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
                                                 <b>{{details.controleMecanique.pneumatique.pAVD.marque}}</b> 
                                                 <b>{{details.controleMecanique.pneumatique.pAVD.dimensions}}</b>
                                                 <b>{{details.controleMecanique.pneumatique.pAVD.profondeurRestante}}</b>
@@ -403,13 +341,13 @@
         
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Arrière Gauche</b></p><br>
-                                            <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Marque : <br>
                                                 Dimensions : <br>
                                                 Profondeur Restante : <br>
                                                 Type de pneu : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
                                                 <b>{{details.controleMecanique.pneumatique.pARG.marque}}</b> 
                                                 <b>{{details.controleMecanique.pneumatique.pARG.dimensions}}</b>
                                                 <b>{{details.controleMecanique.pneumatique.pARG.profondeurRestante}}</b>
@@ -418,13 +356,13 @@
                                         </div>
                                         <div class="row d-flex justify-content-center" >      
                                             <p class="text-blue-700" style="padding-left: 0.5rem !important;"><b>Arrière Droit</b></p><br>
-                                            <div class="flex flex-col lg:w-1/3 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-2/5 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Marque : <br>
                                                 Dimensions : <br>
                                                 Profondeur Restante : <br>
                                                 Type de pneu : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2">
+                                            <div class="flex flex-col lg:w-3/5 sm:mb-2 -mx-2">
                                                 <b>{{details.controleMecanique.pneumatique.pARD.marque}}</b> 
                                                 <b>{{details.controleMecanique.pneumatique.pARD.dimensions}}</b>
                                                 <b>{{details.controleMecanique.pneumatique.pARD.profondeurRestante}}</b>
@@ -989,4 +927,3 @@
   
 
 <!-- <div class="fullpage" #fullPage (click)="closeZoom()"></div> -->
-
