@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceVoitureService } from 'src/app/services/service-voiture.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-voiture',
@@ -8,10 +9,13 @@ import { ServiceVoitureService } from 'src/app/services/service-voiture.service'
 })
 export class DetailsVoitureComponent implements OnInit {
 
-  constructor(private _voitureService: ServiceVoitureService) { }
+  constructor(private _voitureService: ServiceVoitureService, private router: Router) { }
   selectedControl: number = 1;
   ngOnInit(): void {
-    this._voitureService.getCarDetailsById('64ea912f50e50b39fb676781').subscribe((res) => {
+
+    let carId = this.router.url.split('?')[1].split('=')[1];
+    console.log(carId)
+    this._voitureService.getCarDetailsById(carId).subscribe((res) => {
       console.log(res);
     }, (err)=>{console.error(err)})
 
