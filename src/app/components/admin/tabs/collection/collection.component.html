@@ -31,8 +31,7 @@
                   <i class="fa-solid fa-ellipsis-vertical"></i>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item">Preview</a></li>
-                  <li><a class="dropdown-item">Update</a></li>
+                  <li><a class="dropdown-item"  [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: car._id}">Preview</a></li>
                   <li><a class="dropdown-item" (click)="deleteCarById(car._id)">Refuser</a></li>
                 </ul>
               </div>

@@ -13,27 +13,34 @@ export class DetailsVoitureComponent implements OnInit {
   constructor(private _voitureService: ServiceVoitureService, private router: Router, private renderer: Renderer2) { }
   selectedControl: number = 1;
   details: any = null;
+  detailsIsLoaded : boolean = false;
   imgList: string[] = [
                         '../../../assets/Ford-Mondeo-1.png',
                         '../../../assets/Ford-Mondeo-2.png',
                         '../../../assets/Ford-Mondeo-3.png',
                         '../../../assets/Ford-Mondeo-4.png',
                       ]
-  
-  selectedMainImage : string = this.imgList[0];
+
+  selectedMainImage : string = "";
 
   //mainImage: HTMLImageElement = document.querySelector('main-image');
   //fullPage : HTMLElement = document.querySelector('#fullPage');
   @ViewChild('mainImg') mainImg : ElementRef ;
   @ViewChild('fullPage') fullPage: ElementRef;
-  
-  ngOnInit(): void {
+
+  async ngOnInit(): Promise<void> {
 
     let carId = this.router.url.split('?')[1].split('=')[1];
-    this._voitureService.getCarDetailsById(carId).subscribe((res) => {
+    await this._voitureService.getCarDetailsById(carId).subscribe((res) => {
       this.details = res;
-      console.log(res);
+      this.detailsIsLoaded = true;
+      if(this.details && this.details.images.length > 0){
+        this.selectedMainImage = this.details.images[0].fileURL
+      }else{
+        console.log(res);
       this.selectedMainImage  = this.imgList[0];
+      }
+
     }, (err)=>{console.error(err)})
 
 
@@ -62,11 +69,11 @@ export class DetailsVoitureComponent implements OnInit {
         //fullscreenContainer?.requestFullscreen(); // Enter fullscreen mode
       } else {
         //document.exitFullscreen(); // Exit fullscreen mode
-        
-        window.scroll({ 
-          top: 0, 
+
+        window.scroll({
+          top: 0,
           left: 0,
-          behavior: 'auto' 
+          behavior: 'auto'
    });
       }
   }
@@ -80,6 +87,6 @@ export class DetailsVoitureComponent implements OnInit {
   }
 
   switchImage(num: number) {
-    this.selectedMainImage = this.imgList[num]
+    this.selectedMainImage = this.details.images[num].fileURL //this.imgList[num]
   }
 }
