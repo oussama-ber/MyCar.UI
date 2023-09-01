@@ -32,6 +32,7 @@ export class DetailsVoitureComponent implements OnInit {
     let carId = this.router.url.split('?')[1].split('=')[1];
     this._voitureService.getCarDetailsById(carId).subscribe((res) => {
       this.details = res;
+      console.log(res);
       this.selectedMainImage  = this.imgList[0];
     }, (err)=>{console.error(err)})
 
