@@ -198,7 +198,7 @@ export class CreateVoitureComponent implements OnInit {
             const uploadTask =await this.fireStorage.upload(copyPath,this.uploadedFiles[index]);
             const url = await uploadTask.ref.getDownloadURL()
             await this._voitureService.saveImages(url, res.createdCar._id).subscribe((rs)=>{
-              console.log(rs);
+              // console.log(rs);
             });
           }
         }
@@ -309,7 +309,7 @@ export class CreateVoitureComponent implements OnInit {
       this._voitureService.saveImage(this.base64Output).subscribe((response)=>{
         this.imagePreview = response.createdImage;
       })
-      console.log("base64Output", this.base64Output)
+      // console.log("base64Output", this.base64Output)
     });
   }
   isValidString(){

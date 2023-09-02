@@ -1,5 +1,8 @@
 .vend-voiture-card{
-    background-color: var(--main-bg-color);
+    background-color: var(--bg-section);
+    border-radius: 5px;
+    border: 1px solid var(--neutral-600, #EAEBF0);
+    box-shadow: 0px 1px 2px 0px rgb(9 16 30 / 31%);
   }
   .vend-voiture-card-btn{
     background-color: #23AF74;
@@ -7,38 +10,40 @@
   .contact-landing-page{
     background-color: #212553;
   }
-
+  .card-side-text{
+    color: var(--text-color);
+  }
   .banner-title {
     font-family: var(--text-family);
     font-size: var(--sub-title-size);
     font-weight: var(--text-title-wheight);
-    color: var(--text-color-light);
+    color: var(--text-color);
   }
 
   .banner-text {
     font-family: var(--text-family);
     font-size: var(--text-size);
     font-weight: var(--text-title-wheight);
-    color: var(--text-color-light);
+    color: var(--text-color);
   }
   .card-title-style{
     font-family: var(--text-family);
     font-size: var(--sub-title-size);
     font-weight: var(--text-title-wheight);
-    color: var(--text-color-light);
+    color: var(--text-color);
   }
   .card-subTitle-style{
     font-family: var(--text-family);
     font-size: var(--h-2-text);
     font-weight: var(--text-title-wheight);
-    color: var(--text-color-light);
+    color: var(--text-color);
   }
-  
+
   .card-text-style{
     font-family: var(--text-family);
     font-size: var(--text-size);
     font-weight: var(--text-title-wheight);
-    color: var(--text-color-light);
+    color: var(--text-color);
   }
 
 
@@ -46,7 +51,7 @@
     border-radius: 5px;
     border: 1px solid var(--neutral-600, #EAEBF0);
     background: var(--base-white, #FFF);
-  
+
     /* Shadow/XSM */
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.04);
   }
@@ -80,7 +85,7 @@
     justify-content: center !important;
     z-index: 9999;
   }
-  
+
   .fullscreen-container img {
     max-width: 100%;
     max-height: 100%;

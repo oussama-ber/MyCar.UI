@@ -129,7 +129,7 @@ export class CarListComponent implements OnInit {
   }
   async getInputFilter(){
   let inputFiler = await this.sharedService.getfilterVariable();
-  console.log("inputFiler", inputFiler)
+  // console.log("inputFiler", inputFiler)
   this.carFilter = inputFiler;
 
   }
@@ -153,7 +153,7 @@ export class CarListComponent implements OnInit {
 
       (response)=>{
       this.filteredCars = response.allCars;
-      console.log("this.filteredCars", this.filteredCars)
+      // console.log("this.filteredCars", this.filteredCars)
       this.filteredCarsIsLoaded = true;
     },
 
