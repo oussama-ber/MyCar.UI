@@ -37,7 +37,7 @@ export class DetailsVoitureComponent implements OnInit {
       if(this.details && this.details.images.length > 0){
         this.selectedMainImage = this.details.images[0].fileURL
       }else{
-        console.log(res);
+        // console.log(res);
       this.selectedMainImage  = this.imgList[0];
       }
 

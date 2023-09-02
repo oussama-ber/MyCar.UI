@@ -55,7 +55,7 @@ export class VendreVoitureComponent implements OnInit {
     requestToCreate.email = emailInput
     requestToCreate.telephone = telephoneInput
     this._voitureService.createRequest(requestToCreate).subscribe((response)=>{
-      console.log("response", response)
+      // console.log("response", response)
     })
     this.initializeForm();
   }

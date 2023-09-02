@@ -148,8 +148,8 @@
               class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
             />
             <img
-              *ngIf="carDetail.image?.fileURL.length == 0"
-              src="../../../assets/main-car-logo.webp"
+              *ngIf="carDetail.image?.fileURL?.length != 0"
+              src="../../../assets/logos/icone-myAuto.png"
               loading="lazy"
               alt="Photo by Austin Waaltde"
               class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"

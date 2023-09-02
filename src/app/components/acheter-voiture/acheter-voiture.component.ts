@@ -140,7 +140,6 @@ export class AcheterVoitureComponent implements OnInit {
     await this._voitureService.getFilteredCars(this.carFilter).subscribe(
       (response)=>{
       this.filteredCars = response.allCarsDetails;
-      console.log("this.filteredCars",this.filteredCars)
       this.filteredCarsIsLoaded = true;
     },
 

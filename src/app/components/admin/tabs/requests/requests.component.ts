@@ -30,7 +30,7 @@ export class RequestsComponent implements OnInit {
   acceptRequest(requestToUpdate: RequestModel){
     // deleteRequestById
     this._voitureService.acceptRequest(requestToUpdate).subscribe(async (response)=>{
-      console.log("response",response);
+      // console.log("response",response);
       await this.getRequests();
     });
   }

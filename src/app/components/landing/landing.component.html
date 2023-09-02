@@ -78,9 +78,17 @@
           [routerLink]="['/detailsvoiture']" [queryParams]="{voitureId: carDetail.car._id}"
         >
           <img
+            *ngIf="carDetail.image?.fileURL?.length > 0"
             [src]="carDetail.image?.fileURL"
             loading="lazy"
-            alt="Car image"
+            alt="Car real image"
+            class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+          />
+          <img
+          *ngIf="carDetail.image?.fileURL?.length != 0"
+            src="../../../assets/logos/icone-myAuto.png"
+            loading="lazy"
+            alt="Car default logo"
             class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
           />
           <div
@@ -232,7 +240,8 @@
       <h3 class="contact-title">Contactez un de nos agents pour vous accompagner sur votre projet Auto</h3>
     </div>
     <div class="card-bottom">
-      <img src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png" alt="" class="img">
+      <!-- <img src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png" alt="" class="img"> -->
+      <img src="../../../assets/agent-icon-2.png" alt="" class="img">
       <p class="name">Jhon Doe</p>
       <div class="status">Support</div>
       <button class="btn-contact">+216 XX XXX XXX <i class="fa-solid fa-phone phone-svg"></i></button>
