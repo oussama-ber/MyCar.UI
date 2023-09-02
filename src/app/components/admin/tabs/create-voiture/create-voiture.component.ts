@@ -133,12 +133,9 @@ export class CreateVoitureComponent implements OnInit {
     })
   }
   deleteEntretienHistory(entretirnIndex: number){
-    console.log("entretirnIndex", entretirnIndex);
-    console.log("before", this.inputAllEntretien)
     this.inputAllEntretien = this.inputAllEntretien.filter((entretien, index)=>{
-      return index ! = entretirnIndex;
+      return index != entretirnIndex;
     })
-    console.log("after", this.inputAllEntretien)
   }
   submitVoiture(){
 
