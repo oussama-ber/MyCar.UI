@@ -92,7 +92,7 @@
                     <p class="card-text-style pt-1">Boite de vitesse</p>
                     <p class="card-subTitle-style">{{details.car.boiteVitesse}}</p>
                     <p class="card-text-style pt-4">Kilométrage</p>
-                    <p class="card-subTitle-style">{{details.car.kilometrage}}</p>
+                    <p class="card-subTitle-style">{{details.car.kilometrage | number: '1.0-0'}}</p>
                   </div>
 
                 </div>
@@ -226,9 +226,9 @@
                             <i class="fa fa-flag" aria-hidden="true"></i>
                           </div>
                           <div class="flex-grow pl-4">
-                            <h2 class="font-medium mb-1 tracking-wider">Kilometrage      Date</h2>
-                            <div *ngIf="details.historyDetails.length > 0" >
-                              <p class="leading-relaxed">{{details.historyDetails[0].kilometrage}}      {{details.historyDetails[0].date | date:'dd-MM-yyyy'}}</p>
+                            <h2 class="font-medium mb-1 tracking-wider">Kilometrage      Total</h2>
+                            <div *ngIf="details?.car?.kilometrage > 0" >
+                              <p class="leading-relaxed">{{details.car.kilometrage | number: '1.0-0'}} km</p>
                             </div>
                           </div>
                         </div>
@@ -240,8 +240,8 @@
                             <i class="fa fa-wrench" aria-hidden="true"></i>
                           </div>
                           <div class="flex-grow pl-4">
-                            <h2 class="font-medium mb-1 tracking-wider">Entretien {{details.historyDetails.length - index}}</h2>
-                            <p class="leading-relaxed">{{entretien.kilometrage}}  {{entretien.date | date:'dd-MM-yyyy'}}</p>
+                            <h2 class="font-medium mb-1 tracking-wider"><b>Entretien {{details.historyDetails.length -index}}:</b> {{entretien.description}}</h2>
+                            <p class="leading-relaxed">{{ entretien.kilometrage | number: '1.0-0' }}km  {{entretien.date | date:'dd-MM-yyyy'}}</p>
                           </div>
                         </div>
                       </div>
@@ -461,7 +461,7 @@
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="6" class="px-3">
-                                        <p><b>Un test de conduite a été réalisé par l'agent dont la résultat était:</b><b> {{details.controleMecanique.testConduite.resultat}}.</b></p> <br>
+                                        <p><b>Un test de conduite a été réalisé par l'agent, aucune anomalie n'a été constatée</b></p> <br>
                                         <ul style="list-style: inside !important;">
                                             <li>Tenue de la ligne de conduite (accélération et freinage)</li>
                                             <li>Pas d'anomalie à la conduite sur les trains roulants (suspensions, amortisseurs, rotules, ...)</li>
@@ -812,8 +812,8 @@
                       <div class="div col-12 flex flex-col">
                         <p class="fs-2 py-1 card-side-text"><b>{{details.car.marque}}</b></p>
                         <p class="fs-3 py-1 card-side-text"><b>{{details.car.modele}}</b></p>
-                        <p class="fs-5 py-1 card-side-text">{{details.car.dateMiseCirculation | date:'yyyy'}} | {{details.car.kilometrage}} km | {{details.car.carburant}}</p>
-                        <p class="fs-1 py-1 card-side-text">{{details.car.prix}} TND</p>
+                        <p class="fs-5 py-1 card-side-text">{{details.car.dateMiseCirculation | date:'yyyy'}} | {{details.car.kilometrage | number: '1.0-0'}} km | {{details.car.carburant}}</p>
+                        <p class="fs-1 py-1 card-side-text">{{details.car.prix | number: '1.0-0'}} TND</p>
                         <a class="inline-block flex-1 rounded-lg bg-indigo-500 mt-28 px-8 py-3 text-center  font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 reserver-btn-style">Reserver</a>
                       </div>
                     </div>

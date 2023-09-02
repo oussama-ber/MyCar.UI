@@ -12,7 +12,7 @@
             <th data-label="email">Date Mise Circulation</th>
             <th data-label="email">Email</th>
             <th data-label="email">Numero Telephone</th>
-            <th data-label="email">Created Date</th>
+            <th data-label="email">Date de création</th>
             <th data-label="email">Status</th>
             <th data-label="email"></th>
           </tr>
@@ -21,12 +21,12 @@
           <tr  *ngFor="let request of requests">
             <td data-label="first-name">{{request.marque}}</td>
             <td data-label="first-name">{{request.modele}}</td>
-            <td data-label="first-name">{{request.kilometrage}}</td>
+            <td data-label="first-name">{{request.kilometrage| number: '1.0-0'}}</td>
             <td data-label="first-name">{{request.carburant}}</td>
             <td data-label="first-name">{{request.boiteVitesse}}</td>
-            <td data-label="last-name">{{request.dateMiseCirculation}}</td>
+            <td data-label="last-name">{{request.dateMiseCirculation| date:'dd-MM-yyyy'}}</td>
             <td data-label="email"> {{request.email}}</td>
-            <td data-label="email"> (+216) {{request.telephone}}</td>
+            <td data-label="email"> (+216) {{request.telephone| number: '1.0-0'}}</td>
             <td data-label="last-name">{{request.createdDate | date:'dd-MM-yyyy'}}</td>
             <td data-label="last-name">{{request.tag}}</td>
             <td data-label="email">

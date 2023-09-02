@@ -19,11 +19,11 @@
           <tr  *ngFor="let car of carsList">
             <td data-label="first-name">{{car.marque}}</td>
             <td data-label="first-name">{{car.modele}}</td>
-            <td data-label="first-name">{{car.kilometrage}}</td>
+            <td data-label="first-name">{{car.kilometrage| number: '1.0-0'}}</td>
             <td data-label="first-name">{{car.carburant}}</td>
             <td data-label="first-name">{{car.boiteVitesse}}</td>
-            <td data-label="last-name">{{car.dateMiseCirculation}}</td>
-            <td data-label="email"> {{car.prix}}</td>
+            <td data-label="last-name">{{car.dateMiseCirculation| date:'dd-MM-yyyy'}}</td>
+            <td data-label="email"> {{car.prix| number: '1.0-0'}}</td>
             <td data-label="email">{{car.tag}}</td>
             <td data-label="email">
               <div class="dropdown">
