@@ -122,13 +122,13 @@
             <div class="row"></div>
             <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
               >{{ carDetail.car.dateMiseCirculation | date : "yyyy" }} |
-              {{ carDetail.car.kilometrage }} | {{ carDetail.car.carburant }} |
+              {{ carDetail.car.kilometrage | number: '1.0-0' }}km | {{ carDetail.car.carburant }} |
               {{ carDetail.car.boiteVitesse }}</span
             >
           </div>
           <div class="col-3 flex justify-start items-start pt-3 ps-0 pe-3">
             <span class="font-bold text-gray-600 lg:text-sm"
-              >{{ carDetail.car.prix }} TND</span
+              >{{ carDetail.car.prix | number: '1.0-0'}} TND</span
             >
           </div>
         </div>
@@ -240,7 +240,7 @@
     <div class="card-bottom">
       <!-- <img src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png" alt="" class="img"> -->
       <img src="../../../assets/agent-icon-2.png" alt="" class="img">
-      <p class="name">Jhon Doe</p>
+      <p class="name">Agent MyAuto</p>
       <div class="status">Support</div>
       <button class="btn-contact">+216 XX XXX XXX <i class="fa-solid fa-phone phone-svg"></i></button>
     </div>

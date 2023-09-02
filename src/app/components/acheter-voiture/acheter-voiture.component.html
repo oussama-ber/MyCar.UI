@@ -5,7 +5,7 @@
       <div class="fs-6 title-style mt-2">Prix</div>
       <div class="flex flex-row">
         <div class="flex-col">
-          <label for="prixmin">Min. ({{ mimumPrix }})</label><br />
+          <label for="prixmin">Min. ({{ mimumPrix | number: '1.0-0'}})</label><br />
           <input
             type="number"
             [(ngModel)]="selectPrixMin"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="flex-col">
-          <label for="prixmax">Max. ({{ maximumPrix }})</label><br />
+          <label for="prixmax">Max. ({{ maximumPrix | number: '1.0-0' }})</label><br />
           <input
             type="number"
             [(ngModel)]="selectPrixMax"
@@ -45,7 +45,7 @@
       <div class="fs-6 title-style mt-2">kilometrage</div>
       <div class="flex flex-row">
         <div class="flex-col">
-          <label for="html">Min.({{ mimumKilometrage }})</label><br />
+          <label for="html">Min.({{ mimumKilometrage | number: '1.0-0'}})</label><br />
           <input
             type="number"
             id="html"
@@ -55,7 +55,7 @@
           />
         </div>
         <div class="flex-col">
-          <label for="html">Max. ({{ maximumKilometrage }}) </label><br />
+          <label for="html">Max. ({{ maximumKilometrage | number: '1.0-0' }}) </label><br />
           <input
             type="number"
             id="html"
@@ -182,13 +182,13 @@
               <div class="row"></div>
               <span class="text-sm text-gray-500 lg:text-base whitespace-nowrap"
                 >{{ carDetail.car.dateMiseCirculation | date : "yyyy" }} |
-                {{ carDetail.car.kilometrage }} | {{ carDetail.car.carburant }} |
+                {{ carDetail.car.kilometrage | number: '1.0-0' }} | {{ carDetail.car.carburant }} |
                 {{ carDetail.car.boiteVitesse }}</span
               >
             </div>
             <div class="col flex justify-end items-start pt-3 ps-0 pe-3">
               <span class="font-bold text-gray-600 lg:text-sm"
-                >{{ carDetail.car.prix }} TND</span
+                >{{ carDetail.car.prix | number: '1.0-0' }} TND</span
               >
             </div>
           </div>

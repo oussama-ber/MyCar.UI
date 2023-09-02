@@ -36,79 +36,79 @@ export class CreateVoitureComponent implements OnInit {
 
   ngOnInit(): void {
     this.createVoitureFormGeneral = new FormGroup({
-      marque: new FormControl(null),
-      modele: new FormControl(null),
-      dateMiseCirculation: new FormControl(null),
-      carburant: new FormControl(null),
-      boiteVitesse: new FormControl(null),
-      kilometrage: new FormControl(null),
+      marque: new FormControl(""),
+      modele: new FormControl(""),
+      dateMiseCirculation: new FormControl(""),
+      carburant: new FormControl(""),
+      boiteVitesse: new FormControl(""),
+      kilometrage: new FormControl(0),
       email: new FormControl(""),
-      telephone: new FormControl(null),
-      prix: new FormControl(null),
+      telephone: new FormControl(""),
+      prix: new FormControl(0),
       image: new FormControl("", {
         validators: [Validators.required] , asyncValidators: [mimeType]
       })
     });
     this.createVoitureFormOptions = new FormGroup({
-      option: new FormControl(null, {validators: [Validators.required]})
+      option: new FormControl("", {validators: [Validators.required]})
     })
     this.etatExterieurForm = new FormGroup({
-      title: new FormControl(null, {validators: [Validators.required]})
+      title: new FormControl("", {validators: [Validators.required]})
     })
     this.etatInterieurForm = new FormGroup({
-      title: new FormControl(null, {validators: [Validators.required]})
+      title: new FormControl("", {validators: [Validators.required]})
     })
     this.createVoitureFormEntretien = new FormGroup({
-      kilometrage: new FormControl(null),
-      description: new FormControl(null),
-      date: new FormControl(null)
+      kilometrage: new FormControl(0),
+      description: new FormControl(""),
+      date: new FormControl("")
     })
     this.controlMecanicqueFormPneumatiques = new FormGroup({
-      aVGmarque: new FormControl(null),
-      aVGdimensions: new FormControl(null),
-      aVGprofondeurRestante: new FormControl(null),
-      aVGtypePneu: new FormControl(null),
+      aVGmarque: new FormControl(""),
+      aVGdimensions: new FormControl(""),
+      aVGprofondeurRestante: new FormControl(""),
+      aVGtypePneu: new FormControl(""),
 
-      aVDmarque: new FormControl(null),
-      aVDdimensions: new FormControl(null),
-      aVDprofondeurRestante: new FormControl(null),
-      aVDtypePneu: new FormControl(null),
+      aVDmarque: new FormControl(""),
+      aVDdimensions: new FormControl(""),
+      aVDprofondeurRestante: new FormControl(""),
+      aVDtypePneu: new FormControl(""),
 
-      aRGmarque: new FormControl(null),
-      aRGdimensions: new FormControl(null),
-      aRGprofondeurRestante: new FormControl(null),
-      aRGtypePneu: new FormControl(null),
+      aRGmarque: new FormControl(""),
+      aRGdimensions: new FormControl(""),
+      aRGprofondeurRestante: new FormControl(""),
+      aRGtypePneu: new FormControl(""),
 
-      aRDmarque: new FormControl(null),
-      aRDdimensions: new FormControl(null),
-      aRDprofondeurRestante: new FormControl(null),
-      aRDtypePneu: new FormControl(null),
+      aRDmarque: new FormControl(""),
+      aRDdimensions: new FormControl(""),
+      aRDprofondeurRestante: new FormControl(""),
+      aRDtypePneu: new FormControl(""),
 
-      aVplaque: new FormControl(null),
-      aRplaque: new FormControl(null),
+      aVplaque: new FormControl(""),
+      aRplaque: new FormControl(""),
 
-      aVdisque: new FormControl(null),
-      aRdisque: new FormControl(null),
+      aVdisque: new FormControl(""),
+      aRdisque: new FormControl(""),
 
-      distributionType: new FormControl(null),
+      distributionType: new FormControl(""),
 
-      moteurNiveauHuile: new FormControl(null),
-      moteurNiveauLiquideFrein: new FormControl(null),
-      moteurNiveauRefroidissement: new FormControl(null),
-      examenVisuelFruitesHuile: new FormControl(null),
-      courroieAccessoire: new FormControl(null),
-      etatBatterie: new FormControl(null),
+      moteurNiveauHuile: new FormControl(""),
+      moteurNiveauLiquideFrein: new FormControl(""),
+      moteurNiveauRefroidissement: new FormControl(""),
+      examenVisuelFruitesHuile: new FormControl(""),
+      courroieAccessoire: new FormControl(""),
+      etatBatterie: new FormControl(""),
 
-      trainAvRotules: new FormControl(null),
-      trainAVCardans: new FormControl(null),
-      trainAVAmortisseurs: new FormControl(null),
+      trainAvRotules: new FormControl(""),
+      trainAVCardans: new FormControl(""),
+      trainAVAmortisseurs: new FormControl(""),
 
-      trainARRotules: new FormControl(null),
-      trainARCardans: new FormControl(null),
-      trainARAmortisseurs: new FormControl(null),
+      trainARRotules: new FormControl(""),
+      trainARCardans: new FormControl("null"),
+      trainARAmortisseurs: new FormControl(""),
 
-      resultatFinal: new FormControl(null),
-      vitesseMax: new FormControl(null),
+      resultatFinal: new FormControl(""),
+      vitesseMax: new FormControl(""),
 
 
     })
