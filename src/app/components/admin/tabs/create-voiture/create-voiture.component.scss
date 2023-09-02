@@ -17,6 +17,15 @@ display: flex;
 align-content: center;
 align-items: center;
 }
+.item-style-option{
+  background-color: var(--text-white);
+  color: var(--text-color);
+  cursor: pointer;
+}
+.item-style-option:hover{
+  background-color: red;
+  color: var(--text-color-light);
+}
 .next-button-style{
 background-color: var(--accent-bg-color);
 color: var(--text-color-light) !important;
@@ -101,3 +110,4 @@ text-decoration: underline;
   font-size: medium;
   font-family: var(--text-family);
 }
+
