@@ -67,7 +67,7 @@
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <!-- product - start -->
       <div *ngFor="let car of filteredCars" class="card-layout">
-        <a href="#" class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100" routerLink="/detailsvoiture">
+        <a class="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100" routerLink="/detailsvoiture">
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&q=75&fit=crop&crop=top&w=600&h=700" loading="lazy" alt="Photo by Austin Wade"
           class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
@@ -83,7 +83,7 @@
 
         <div class="flex items-start justify-between gap-2 rounded-b-lg bg-gray-100 p-4">
           <div class="flex flex-col">
-            <a href="#" class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg">{{car.marque}} {{car.modele}}</a>
+            <a class="font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-lg">{{car.marque}} {{car.modele}}</a>
             <span class="text-sm text-gray-500 lg:text-base">by Fancy Brand</span>
           </div>
 
