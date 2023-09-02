@@ -315,7 +315,7 @@
                         </div>
                       </div>
                         </div>
-                        <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2 py-2 px-5" *ngIf="detailsIsLoaded">
+                        <div class="flex flex-col lg:w-2/3 sm:mb-2 -mx-2 py-2 pl-5" *ngIf="detailsIsLoaded">
                             <div class="card ng-white border-0 w-full h-full ">
                             <div class="card ng-white border-0 w-full h-full shadow-sm">
                                 <div class="card-body" [ngSwitch]="selectedControl">
@@ -414,7 +414,7 @@
                                     </div>
                                     <div *ngSwitchCase="4" class="px-3">
                                         <div class="row d-flex justify-content-center" >
-                                            <div class="flex flex-col lg:w-1/2 sm:mb-2 -mx-2" style="padding: 0px !important;">
+                                            <div class="flex flex-col lg:w-7/12 sm:mb-2 -mx-2" style="padding: 0px !important;">
                                                 Niveau huile : <br>
                                                 Niveau liquide de frein : <br>
                                                 Niveau liquide de refroidissement : <br>
@@ -422,7 +422,7 @@
                                                 Courroie d'accessoire : <br>
                                                 État de la batterie à l'inspection : <br>
                                             </div>
-                                            <div class="flex flex-col lg:w-1/2 sm:mb-2 -mx-2">
+                                            <div class="flex flex-col lg:w-5/12 sm:mb-2 -mx-2">
                                                 <b>{{details.controleMecanique.moteur.niveauHuile}}</b>
                                                 <b>{{details.controleMecanique.moteur.niveauLiquideFrein}}</b>
                                                 <b>{{details.controleMecanique.moteur.niveauLiquideRefroidissement}}</b>
@@ -744,6 +744,27 @@
                   <div class="text-center text-sm text-gray-500 sm:text-base">Besoin d'aide pour decider? <a href="/faq" class="text-gray-500 underline transition duration-100 hover:text-indigo-500 active:text-indigo-600">Consulter nos FAQ</a>.</div>
                 </div>
             </div>
+
+
+            <!--section Financement-->
+            <div class="row d-flex justify-content-center" *ngIf="detailsIsLoaded" >
+              <div class="card vend-voiture-card border-0 mb-8 rounded-3xl"  style="width: 78rem; height: 20rem;">
+                <div class="card-body">
+                  <div class="flex flex-row place-content-between">
+                    <h5 class="card-title fs-1 text-blue-700 banner-title">Financement</h5>
+                    <img src="../../../assets/YCredit.png" class="justify-content-end h-20">
+                  </div>
+                  <div class="div row flex items-start h-full banner-text pt-3 pl-4 leading-loose w-full">
+                    Afin de vous permettre de financer votre voiture, MyAuto s’est associé à Younited Credit.
+                    Réalisez votre simulation de financement 100% en ligne et obtenez une réponse immédiate !
+                    <br>
+                    C’est gratuit et sans engagement.
+  
+                  </div>
+                </div>
+              </div>
+              </div>
+
 
             <!-- section contactez-nous -->
             <div class="row d-flex justify-content-center">
