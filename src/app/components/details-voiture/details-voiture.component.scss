@@ -32,6 +32,12 @@
     font-weight: var(--text-title-wheight);
     color: var(--text-color);
   }
+  .financement-text-style{
+    font-family: var(--text-family);
+    font-size: var(--text-size);
+    font-weight: var(sub-text-title-wheight);
+    color: var(--text-color);
+  }
   .card-title-style{
     font-family: var(--text-family);
     font-size: var(--sub-title-size);
@@ -101,12 +107,14 @@
 
   .inv{
     background-color: rgb(255 255 255);
+    cursor: pointer;
     svg{
       color: rgb(59 130 246);
     }
     span{
       color: var(--text-color);
     }
+
   }
 
   .inv:hover{

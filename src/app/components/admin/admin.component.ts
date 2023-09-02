@@ -17,7 +17,6 @@ public isCreateVoiture : boolean = false ;
     this.isCreateVoiture = false;
   }
   backToGallery(){
-    console.log("getting aboutput ")
     this.isGallery = true;
     this.isRequests = false;
     this.isCreateVoiture = false;

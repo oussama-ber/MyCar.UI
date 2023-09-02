@@ -117,6 +117,26 @@ export class CreateVoitureComponent implements OnInit {
 
     })
   }
+  deleteOption(optionIndex: number){
+    this.inputAllOptions = this.inputAllOptions.filter((option, index)=>{
+     return index !=optionIndex
+    })
+  }
+  deleteEtatInterieur(etatIndex: number){
+    this.inputAllEtatInterieur = this.inputAllEtatInterieur.filter((option, index)=>{
+     return index != etatIndex;
+    })
+  }
+  deleteEtatExterieur(etatIndex: number){
+    this.inputAllEtatExterieur = this.inputAllEtatExterieur.filter((option, index)=>{
+     return index !=etatIndex;
+    })
+  }
+  deleteEntretienHistory(entretirnIndex: number){
+    this.inputAllEntretien = this.inputAllEntretien.filter((entretien, index)=>{
+      return index != entretirnIndex;
+    })
+  }
   submitVoiture(){
 
       const data =
