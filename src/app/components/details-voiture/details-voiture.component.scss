@@ -97,3 +97,24 @@
     max-height: 100%;
     justify-content: space-around !important;
   }
+
+
+  .inv{
+    background-color: rgb(255 255 255);
+    svg{
+      color: rgb(59 130 246);
+    }
+    span{
+      color: var(--text-color);
+    }
+  }
+
+  .inv:hover{
+    background-color: var(--main-bg-color);
+    svg{
+      color: var(--secondary-bg-color);
+    }
+    span{
+      color:var(--text-color-light);
+    }
+  }
